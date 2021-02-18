@@ -4,9 +4,9 @@ Getting Started
 
 In this section you will:
 
-* Sign up for Github.
+* Decide on a version control platform.
 * Generate a scaffold for your new Python project.
-* Upload it to GitHub.
+* Upload it to the version control remote.
 * Install your new Python project for development.
 
 Then, in the next section, we will begin to move your scientific code into that
@@ -16,14 +16,36 @@ You will need a Terminal (Windows calls it a "Command Prompt") and a plain text
 editor. Any will do; we won't assume anything about the editor you are using.
 If you are looking for a recommendation for beginners, the `Atom Editor
 <https://atom.io/>`_ by GitHub is a good one. For minimalists, ``nano`` on
-Linux or OSX and Notebook on Windows will get you up and running.
+Linux or OSX and Notepad on Windows will get you up and running.
+
+However, as you develop your programming skills, you will probably want to
+correspondingly improve the tool you use to edit code. Most software developers
+use something called an Integrated Development Environment (IDE). We have some
+recommendations about good IDEs for Python here (TODO add link). If you are
+more of an eccentric (read awesome), `Vim <https://www.vim.org/>`_ or 
+`Emacs <https://www.gnu.org/software/emacs/>`_ are very customisable text
+editors which are tuned for software development.
 
 Reading the steps that follow, you might reasonably wonder, "Why isn't there
 just an automated script for this?" We prefer to do this process manually so
 that we are forced to think carefully about each step, notice when something
 goes wrong, and debug if necessary. We recommend you do the same.
 
-#. `Sign up for GitHub <http://github.com/>`_.
+#. Decide where you are going to host your project. At UKAEA, this is not as
+   easy as it should be. You have effectively two options:
+
+   #. If you do not intend to immediately open-source the project (usually not
+      the case for UKAEA projects) nor do you require extensive external
+      collaborators, then you should host your project on our `internal GitLab
+      <https://git.ccfe.ac.uk/>`_. You should already have access if you have a
+      computing account and the password should match your O365 one. This is
+      considered the default option for new UKAEA software projects.
+   #. If you do have a more immediate view towards open-sourcing and/or you
+      have external collaborators, then hosting the project within our `UKAEA
+      organisation on GitHub <https://github.com/ukaea>`_ might be a better
+      option. Please contact James Cook <james.cook@ukaea.uk> to get added to
+      the organisation and have your project repository created.
+      
 
 #. Verify that you have Python 3.
 
@@ -34,36 +56,6 @@ goes wrong, and debug if necessary. We recommend you do the same.
    If necessary, install it by your method of choice: apt, Homebrew, conda,
    etc.
 
-#. Create an *environment*, a sandboxed area for installing software that is
-   separate from the system defaults. This is not essential, but it is
-   strongly encouraged. It ensures that your project and its software
-   dependencies will not interfere with other Python software on your system.
-   There are several tools for this.  But the simplest is Python's built-in
-   ``venv`` (short for "virtual environments"), illustrated here.
-
-   Do this once:
-
-   .. code-block:: bash
-
-      python3 -m venv my-env
-
-   The term ``my-env`` can be anything. It names the new environment.
-
-   Do this every time you open up a new Terminal / Command Prompt to work on
-   your project:
-
-   .. code-block:: bash
-
-      . my-env/bin/activate
-
-   .. note::
-
-      If you are a conda user, you may prefer a conda environment:
-
-      .. code-block:: bash
-
-         conda create -n my-env python=3.7
-         conda activate my-env
 
 #. Verify that you have git installed.
 
@@ -88,7 +80,10 @@ goes wrong, and debug if necessary. We recommend you do the same.
 
    .. code-block:: bash
 
-      python3 -m pip install --upgrade cookiecutter
+      python3 -m pip install --user --upgrade cookiecutter
+
+    TODO add note about what the ``--user`` flag does and the possibility that
+    is might not make the executable available.
 
 #. Generate a new Python project using our cookiecutter template.
 
@@ -150,7 +145,7 @@ goes wrong, and debug if necessary. We recommend you do the same.
 
    .. The following code-block output was generated using `tree -a example/`.
 
-   .. code-block:: none
+   .. code-block:: text
 
       example/
       ├── .flake8
@@ -200,6 +195,45 @@ goes wrong, and debug if necessary. We recommend you do the same.
       cd example
 
    We are now in the top-level ``example/`` directory---not ``example/example``!
+
+
+#. Create an *environment*, a sandboxed area for installing software that is
+   separate from the system defaults. This is not essential, but it is strongly
+   encouraged. It ensures that your project and its software dependencies will
+   not interfere with other Python software on your system.  On Linux-based
+   systems, the system Python installation has some pretty core functionality,
+   so if you bugger that up, your whole OS can be affected.  **You have been
+   warned!!!*** There are several tools for creating virtual environments.  But
+   the simplest is Python's built-in ``venv`` (short for "virtual
+   environments"), illustrated here.
+
+   Do this once:
+
+   .. code-block:: bash
+
+      python3 -m venv my-env
+
+   The term ``my-env`` can be anything. It names the new environment. A typical
+   choice is ``env`` or ``venv``, possibly with a ``.`` prepended if you don't
+   want the directory visible by default from the terminal. In our experience,
+   it is best to make this directory as visible as possible to remind yourself
+   that the project requires you to initiate the virtual environment.
+
+   Do this every time you open up a new Terminal / Command Prompt to work on
+   your project:
+
+   .. code-block:: bash
+
+      . my-env/bin/activate
+
+   .. note::
+
+      If you are a conda user, you may prefer a conda environment:
+
+      .. code-block:: bash
+
+         conda create -n my-env python=3.7
+         conda activate my-env
 
 #. Make the directory a git repository.
 
