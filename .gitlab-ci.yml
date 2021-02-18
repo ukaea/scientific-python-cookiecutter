@@ -47,7 +47,7 @@ build-tutorial:
       - docs/build/html/
     expire_in: 1 week
 
-deploy-tutorial:
+pages:
   stage: deploy
   script:
     - mkdir public/
