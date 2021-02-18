@@ -50,7 +50,7 @@ build-tutorial:
 deploy-tutorial:
   stage: deploy
   script:
-    - mkdir pages/
+    - mkdir public/
     - cp -a docs/build/html/* public/
   artifacts:
     paths:
