@@ -289,22 +289,23 @@ goes wrong, and debug if necessary. We recommend you do the same.
 
       .. code-block:: bash
 
-         git config --local user.name <username_for_vcs>
-         git config --local user.email <email_for_vcs>
+         git config --local user.name USERNAME_FOR_VCS
+         git config --local user.email EMAIL_FOR_VCS
 
-#. `Create a new repository on GitHub <https://github.com/new>`_,
-   naming it with the ``repo_name`` from your cookiecutter input above.
+#. Create a new repository on `GitLab <https://git.ccfe.ac.uk/projects/new>`_
+   or `GitHub <https://github.com/new>`_,
+   naming it with the ``repo_name`` from your cookiecutter input above and
+   selecting the appropriate group or organisation that should own it.
 
    .. important::
 
       Do **not** check "Initialize this repository with a README".
 
-#. Configure your local repository to know about the remote repository on
-   GitHub...
+#. Configure your local repository to know about the remote repository...
 
    .. code-block:: bash
 
-      $ git remote add origin https://github.com/YOUR_GITHUB_USER_NAME/YOUR_REPOSITORY_NAME.
+      $ git remote add origin git@git.ccfe.ac.uk/GITLAB_USER_OR_ORG_NAME/YOUR_REPOSITORY_NAME.
 
    ... and upload the code.
 
@@ -317,16 +318,33 @@ goes wrong, and debug if necessary. We recommend you do the same.
       Writing objects: 100% (42/42), 29.63 KiB | 0 bytes/s, done.
       Total 42 (delta 4), reused 0 (delta 0)
       remote: Resolving deltas: 100% (4/4), done.
-      To github.com:YOUR_GITHUB_USER_NAME/YOUR_REPO_NAME.git
+      To git.ccfe.ac.uk:GITLAB_USER_OR_ORG_NAME/YOUR_REPO_NAME.git
        * [new branch]      master -> master
          Branch master set up to track remote branch master from origin.
 
+   .. note::
+
+      There has been a movement within software development away from using
+      ``master`` as the name for the primary/default branch of a git repository
+      because of the connection to the master/slave dynamic. There has been a
+      lot of debate around this, and you can get a sense of it from `this
+      source
+      <https://mail.gnome.org/archives/desktop-devel-list/2019-May/msg00066.html>`_
+      and `this one
+      <https://twitter.com/mislav/status/1270388510684598272>`_. Whatever
+      conclusions you reach, it is pretty easy to change to a different default 
+      branch name *before you first push to the remote*:
+
+      .. code-block:: bash
+
+         $ git branch -M main
+         $ git push -u origin main
 
    .. note::
 
-      If this repository is to belong to a GitHub *organization* (e.g.
-      http://github.com/NSLS-II) as opposed to a personal user account
-      (e.g. http://github.com/danielballan) it is conventional to name the
+      If this repository is to belong to an *organization* (e.g.
+      http://github.com/ukaea) as opposed to a personal user account
+      (e.g. http://github.com/bielsnohr) it is conventional to name the
       organization remote ``upstream`` instead of ``origin``.
 
       .. code-block:: bash
