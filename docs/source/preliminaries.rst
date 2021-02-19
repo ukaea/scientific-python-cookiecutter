@@ -54,7 +54,8 @@ goes wrong, and debug if necessary. We recommend you do the same.
       python3 --version
   
    If necessary, install it by your method of choice: apt, Homebrew, conda,
-   etc.
+   etc. Also ensure that you have ``pip`` (in apt, this is separate from the
+   ``python3`` package and at the time of writing is called ``python3-pip``).
 
 
 #. Verify that you have git installed.
@@ -82,8 +83,31 @@ goes wrong, and debug if necessary. We recommend you do the same.
 
       python3 -m pip install --user --upgrade cookiecutter
 
-    TODO add note about what the ``--user`` flag does and the possibility that
-    is might not make the executable available.
+   The ``--user`` flag installs this package in your user space rather than
+   with the system site packages. :ref:`See the comment below about
+   *environments*<environment>` for why this is important. However, a downside
+   of using this flag is that the ``cookiecutter`` executable might not be
+   placed in your path, in which case your shell won't be able to find it.
+   There are a few solutions:
+
+   #. The easiest option is to prepend the command to execute ``cookiecutter``
+      with ``python3 -m``. The Python interpreter *will* be aware of the
+      cookiecutter package in your user space, and so will have no trouble
+      finding the executable.
+   #. Find out where the cookiecutter executable has been installed and add
+      that to your ``$PATH`` shell environment variable. This can be done with
+      the following command from the terminal:
+
+      .. code-block:: bash
+
+         python3 -c 'import site; print(site.USER_BASE + "/bin")'
+       
+      Add that output to ``$PATH`` in your ``~/.bashrc`` file.
+   #. If you are using conda, it is fine to install ``cookiecutter``
+      in your base environment, or you can just go ahead and create an
+      environment for this project :ref:`as detailed in the step below
+      <environment>`, and then install cookiecutter in that.
+
 
 #. Generate a new Python project using our cookiecutter template.
 
@@ -92,7 +116,8 @@ goes wrong, and debug if necessary. We recommend you do the same.
       cookiecutter https://github.com/NSLS-II/scientific-python-cookiecutter
 
 
-   You will see the following the prompts. The default suggestion is given in square brackets.
+   You will see the following the prompts. The default suggestion is given in
+   square brackets.
 
    For the last question, ``minimum_supported_python_version``, we recommend
    supporting back to Python 3.6 unless you have a need for newer Python
@@ -128,14 +153,16 @@ goes wrong, and debug if necessary. We recommend you do the same.
    .. note::
 
       Cookiecutter prompted us for several variations of *name*.
-      If are you wondering what differentiates all these names, here's a primer:
+      If are you wondering what differentiates all these names, here's a primer, 
+      and make sure to pay attention to the punctuation allowed for each:
 
       * ``project_name`` -- Human-friendly title. Case sensitive. Spaces allowed.
       * ``package_dist_name`` -- The name to use when you ``pip install ___``.
         Dashes and underscores are allowed. Dashes are conventional. Case
         insensitive.
       * ``package_dir_name`` --- The name to use when you ``import ___`` in Python.
-        Underscores are the only punctuation allowed. Conventionally lowercase.
+        **Underscores are the only punctuation allowed.** Conventionally
+        lowercase.
       * ``repo_name`` --- The name of the GitHub repository. This will be the
         name of the new directory on your filesystem.
 
@@ -185,8 +212,8 @@ goes wrong, and debug if necessary. We recommend you do the same.
    the Python package (e.g. ``LICENSE``) and configuration files related to
    tools we will cover in later sections. We are mostly concerned with the
    ``example/example/`` subdirectory, which is the Python package itself. This
-   is where we'll put the scientific code. But first, we should version-control
-   our project using git.
+   is where we'll put the scientific code. But first, we should get a proper
+   development environment and version-control our project using git.
 
 #. Change directories into your new project.
 
@@ -197,43 +224,47 @@ goes wrong, and debug if necessary. We recommend you do the same.
    We are now in the top-level ``example/`` directory---not ``example/example``!
 
 
-#. Create an *environment*, a sandboxed area for installing software that is
-   separate from the system defaults. This is not essential, but it is strongly
-   encouraged. It ensures that your project and its software dependencies will
-   not interfere with other Python software on your system.  On Linux-based
-   systems, the system Python installation has some pretty core functionality,
-   so if you bugger that up, your whole OS can be affected.  **You have been
-   warned!!!*** There are several tools for creating virtual environments.  But
-   the simplest is Python's built-in ``venv`` (short for "virtual
-   environments"), illustrated here.
+#.  .. _environment:
+    
+    Create an *environment*, a sandboxed area for installing
+    software that is separate from the system defaults. This is not essential,
+    but it is strongly encouraged. It ensures that your project and its software
+    dependencies will not interfere with other Python software on your system.
+    On Linux-based systems, the system Python installation has some pretty core
+    functionality, so if you bugger that up, your whole OS can be affected.
+    **You have been warned!!!*** There are several tools for creating virtual
+    environments.  But the simplest is Python's built-in ``venv`` (short for
+    "virtual environments"), illustrated here.
 
-   Do this once:
+    Do this once:
 
-   .. code-block:: bash
+    .. code-block:: bash
 
-      python3 -m venv my-env
+       python3 -m venv my-env
 
-   The term ``my-env`` can be anything. It names the new environment. A typical
-   choice is ``env`` or ``venv``, possibly with a ``.`` prepended if you don't
-   want the directory visible by default from the terminal. In our experience,
-   it is best to make this directory as visible as possible to remind yourself
-   that the project requires you to initiate the virtual environment.
+    The term ``my-env`` can be anything. It names the new environment. A
+    typical choice is ``env`` or ``venv``, possibly with a ``.`` prepended if
+    you want the directory invisible by default from the terminal. In our
+    experience, it is best to make this directory as visible as possible to
+    remind yourself that the project requires you to initiate the virtual
+    environment. You will want to add the name of the environment directory to
+    `.gitignore` if it is different from the defaults just suggested.
 
-   Do this every time you open up a new Terminal / Command Prompt to work on
-   your project:
+    Do this every time you open up a new Terminal / Command Prompt to work on
+    your project:
 
-   .. code-block:: bash
+    .. code-block:: bash
 
-      . my-env/bin/activate
+       . my-env/bin/activate
 
-   .. note::
+    .. note::
 
-      If you are a conda user, you may prefer a conda environment:
+       If you are a conda user, you may prefer a conda environment:
 
-      .. code-block:: bash
+       .. code-block:: bash
 
-         conda create -n my-env python=3.7
-         conda activate my-env
+          conda create -n my-env python=3.7
+          conda activate my-env   # repeat everytime you come back to project
 
 #. Make the directory a git repository.
 
@@ -249,6 +280,17 @@ goes wrong, and debug if necessary. We recommend you do the same.
 
       $ git add .
       $ git commit -m "Initial commit."
+   
+   .. note::
+
+      If the author credentials for this repository will differ from your
+      globally configured settings in git, then you should set them locally to
+      what you want before committing:
+
+      .. code-block:: bash
+
+         git config --local user.name <username_for_vcs>
+         git config --local user.email <email_for_vcs>
 
 #. `Create a new repository on GitHub <https://github.com/new>`_,
    naming it with the ``repo_name`` from your cookiecutter input above.
