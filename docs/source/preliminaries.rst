@@ -31,20 +31,11 @@ just an automated script for this?" We prefer to do this process manually so
 that we are forced to think carefully about each step, notice when something
 goes wrong, and debug if necessary. We recommend you do the same.
 
-#. Decide where you are going to host your project. At UKAEA, this is not as
-   easy as it should be. You have effectively two options:
-
-   #. If you do not intend to immediately open-source the project (usually not
-      the case for UKAEA projects) nor do you require extensive external
-      collaborators, then you should host your project on our `internal GitLab
-      <https://git.ccfe.ac.uk/>`_. You should already have access if you have a
-      computing account and the password should match your O365 one. This is
-      considered the default option for new UKAEA software projects.
-   #. If you do have a more immediate view towards open-sourcing and/or you
-      have external collaborators, then hosting the project within our `UKAEA
-      organisation on GitHub <https://github.com/ukaea>`_ might be a better
-      option. Please contact James Cook <james.cook@ukaea.uk> to get added to
-      the organisation and have your project repository created.
+#. Decide where you are going to host your project and sign up if necessary.
+   Please consult `the guidance here
+   <http://intranet.ccfe.ac.uk/software/guides/gitlab.html>`_ for more
+   information about your options. GitLab and GitHub are the recommended and
+   most common. When in doubt, reach out to the RSE team.
       
 
 #. Verify that you have Python 3.
