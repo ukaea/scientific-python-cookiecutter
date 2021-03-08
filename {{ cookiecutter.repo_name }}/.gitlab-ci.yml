@@ -1,0 +1,20 @@
+stages:
+  - testing
+
+.before_test: &test_setup
+  image: python:latest
+  before_script:
+    - apt update && apt upgrade -y
+    - python -m pip install --upgrade pip numpy
+    - python -m pip install .
+    - python -m pip install -r requirements-dev.txt
+
+testing:
+  <<: *test_setup
+  stage: testing
+  script:
+    - coverage run -m pytest
+    - coverage report
+    - codecov
+    - flake8
+    - make -C docs html

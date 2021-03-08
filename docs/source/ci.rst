@@ -61,3 +61,38 @@ Activate Travis-CI for Your GitHub Repository
     harm to *also* activate Travis-CI for your personal fork at
     ``https://travis-ci.org/profile``, but it's more important to activate it for
     the upstream fork associated with the organization.
+
+GitLab CI configuration
+---------------------------------------------
+The UKAEA GitLab has its own CI service with it's own distinct configuration. An example
+of such a configuration file is included in the cookiecutter template. 
+
+.... literalinclude:: .example-gitlab-ci.yml
+
+Using GitLab CI
+---------------------------------------------
+If ``.example-gitlab-ci.yml`` is included in the project that 
+is being uploaded to GitLab (after being renamed as ``.gitlab-ci.yml``)
+then it will be automatically recognised and used to configure the CI service.
+Alternatively if no ``.gitlab-ci.yml`` file is included then one can be set up 
+using the ``Set up CI/CD`` button on your repository homepage. For convenience 
+there are also many templates that can be chosen. If a manual configuration file 
+is needed then a step-by-step guide for 
+`writing a .gitlab-ci.yml file <https://git.ccfe.ac.uk/help/user/project/pages/getting_started_part_four.md>`_
+is available.
+
+Code Coverage
+---------------------------------------------
+The example GitLab CI configuration file, ``.example-gitlab-ci.yml`` runs a number 
+of commands in the ``testing`` stage concerning code coverage. The 
+`coverage <https://coverage.readthedocs.io/en/coverage-5.5/#quick-start>`_ 
+package is one of the packages in ``requirements-dev.txt``. This can generate 
+a report of the coverage of the tests that are run, as in what percentage of 
+lines of code are executed when the tests are run. If this is a low percentage 
+then there may be bugs hiding in the code which cannot be identified as the 
+tests do not cover the lines where they may be hiding. The 
+`codecov <https://github.com/codecov/codecov-python>`_
+package is then used to generate data that can be used by GitHub or GitLab for 
+visualization of the coverage report. There are alternatives to using ``coverage``
+or ``codecov``, for example 
+`pytest-cov <https://pypi.org/project/pytest-cov/>`_.
