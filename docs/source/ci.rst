@@ -67,7 +67,7 @@ GitLab CI configuration
 The UKAEA GitLab has its own CI service with it's own distinct configuration. An example
 of such a configuration file is included in the cookiecutter template. 
 
-.... literalinclude:: .example-gitlab-ci.yml
+.. literalinclude:: .example-gitlab-ci.yml
 
 Using GitLab CI
 ---------------------------------------------
