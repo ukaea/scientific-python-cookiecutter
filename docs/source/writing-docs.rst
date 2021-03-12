@@ -49,15 +49,23 @@ You should see some log message ending in ``build succeeded.``
 This output HTML will be located in ``docs/build/html``. In your Internet
 browser, open ``file://.../docs/build/html/index.html``, where ``...`` is the
 path to your project directory. If you aren't sure sure where that is, type
-``pwd``.
+``pwd``. Alternatively, if you can launch your browser from the command line
+and you are already in your project directory, then this should be as easy as:
+
+.. code-block:: bash
+
+   <your_preferred_browser> docs/build/html/index.html &
+
 
 Update the docs
 ---------------
 
-The source code for the documentation is located in ``docs/source/``.
-Sphinx uses a markup language called ReStructured Text (.rst). We refer you to
-`this primer <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_
-to learn how to denote headings, links, lists, cross-references, etc.
+The source code for the documentation is located in ``docs/source/``. These are
+the inputs that Sphinx uses to generate the documentation pages you have just
+generated for your project.  Sphinx recognises a markup language called
+ReStructured Text (.rst). We refer you to `this primer
+<http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_ to
+learn how to denote headings, links, lists, cross-references, etc.
 
 Sphinx formatting is sensitive to whitespace and generally quite picky. We
 recommend running ``make -C docs html`` often to check that the documentation
@@ -70,11 +78,21 @@ Good documentation includes both:
 * Narrative documentation interleaving prose and code examples to explain how
   and why a library is meant to be used
 
+This should be the minimum you seek to achieve. For a more holistic and
+thorough approach to documentation, take a look at `the Divio documentation
+system <https://documentation.divio.com/>`_.
+
 API Documentation
 -----------------
 
 Most the work of writing good API documentation goes into writing good,
-accurate docstrings. Sphinx can scrape that content and generate HTML from it.
+accurate docstrings. If you have done this, then the wonderful Sphinx extension
+``sphinx-autoapi`` will, as the name suggests, automatically generate the API
+documentation for your package and its modules by scraping the docstrings and
+coherently rendering them in HTML.
+
+TODO current position
+
 Again, most scientific Python libraries use the
 `numpydoc standard <https://numpydoc.readthedocs.io/en/latest/format.html>`_,
 which looks like this:
