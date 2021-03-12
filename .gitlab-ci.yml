@@ -39,12 +39,15 @@ build-tutorial:
     - pip install -r requirements.txt 
     - ./run_cookiecutter_example.py
     - pip install -e example/
+    - pip install -r example/requirements-dev.txt 
     - ./copy_user_content.sh
     - pytest example/
+    - make -C example/docs html
     - make -C docs html
   artifacts:
     paths:
       - docs/build/html/
+      - example/docs/build/html/
     expire_in: 1 week
 
 pages:

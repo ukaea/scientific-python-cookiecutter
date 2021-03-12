@@ -43,6 +43,7 @@ extensions = [
     'matplotlib.sphinxext.plot_directive',
     'numpydoc',
     'sphinx_copybutton',
+    'autoapi.extension'
 ]
 
 # Configuration options for plot_directive. See:
@@ -99,6 +100,19 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
+# -- Options for AutoAPI --------------------------------------------------
+
+autoapi_type = "python"
+autoapi_dirs = ["../../{{ cookiecutter.package_dir_name }}"]
+autoapi_keep_files = False
+autoapi_ignore = ['*test*']
+autoapi_options = [
+    "members",
+    "undoc-members",
+    "show-inheritance",
+    "show-module-summary",
+    "special-members",
+]
 
 # -- Options for HTML output ----------------------------------------------
 
@@ -195,7 +209,7 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
-    'numpy': ('https://docs.scipy.org/doc/numpy/', None),
+    'numpy': ('https://numpy.org/doc/stable/', None),
     'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
     'pandas': ('https://pandas.pydata.org/pandas-docs/stable', None),
     'matplotlib': ('https://matplotlib.org', None),
