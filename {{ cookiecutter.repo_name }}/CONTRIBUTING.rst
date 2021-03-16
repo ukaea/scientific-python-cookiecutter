@@ -13,7 +13,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/issues.
+Report bugs at https://{{ cookiecutter.vcs_domain }}/{{ cookiecutter.vcs_username }}/{{ cookiecutter.repo_name }}/issues.
 
 If you are reporting a bug, please include:
 
@@ -42,7 +42,7 @@ or even on the web in blog posts, articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/issues.
+The best way to send feedback is to file an issue at https://{{ cookiecutter.vcs_domain }}/{{ cookiecutter.vcs_username }}/{{ cookiecutter.repo_name }}/issues.
 
 If you are proposing a feature:
 
@@ -59,7 +59,7 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.package_dist_name }}`
 1. Fork the `{{ cookiecutter.repo_name }}` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/{{ cookiecutter.repo_name }}.git
+    $ git clone git@{{ cookiecutter.vcs_domain }}:your_name_here/{{ cookiecutter.repo_name }}.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
@@ -99,6 +99,6 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
 3. The pull request should work for Python 2.7, 3.3, 3.4, 3.5 and for PyPy. Check
-   https://travis-ci.org/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/pull_requests
+   https://travis-ci.org/{{ cookiecutter.vcs_username }}/{{ cookiecutter.repo_name }}/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
