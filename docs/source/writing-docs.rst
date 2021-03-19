@@ -85,19 +85,24 @@ system <https://documentation.divio.com/>`_.
 API Documentation
 -----------------
 
-Most the work of writing good API documentation goes into writing good,
-accurate docstrings. If you have done this, then the wonderful Sphinx extension
-``sphinx-autoapi`` will, as the name suggests, automatically generate the API
-documentation for your package and its modules by scraping the docstrings and
-coherently rendering them in HTML.
-
-TODO current position
+Most of the work for writing good API documentation goes into writing accurate
+docstrings. If you have done this, then the Sphinx extension ``sphinx-autoapi``
+will, as the name suggests, automatically generate the API documentation for
+your package and its modules by scraping the docstrings and coherently
+rendering them in HTML. You will find this part of the documentation under the
+"API Reference" heading on the index page.
 
 Again, most scientific Python libraries use the
-`numpydoc standard <https://numpydoc.readthedocs.io/en/latest/format.html>`_,
-which looks like this:
+`numpydoc standard <https://numpydoc.readthedocs.io/en/latest/format.html>`_
+to format their docstring. Here is a reminder of what that looks like:
 
 .. literalinclude:: refraction.py
+
+As you write your `Narrative Documentation`_ below, you may find it useful to
+include formatted documentation to the objects you are explaining. The following
+two sections show how to do this; however, it is likely more clear to link to
+the API reference for the object rather than reproducing it within your
+explanatory text, as described in `Referencing Documented Objects`_.
 
 Autodoc
 ^^^^^^^
@@ -147,6 +152,29 @@ From here we refer you to the
 
 Narrative Documentation
 -----------------------
+
+Although API reference documentation is essential, it is by no means sufficient
+documentation for your package. An API reference is primarily for users that
+already have some familiarity with the package and are looking to clarify
+specific behavior. This doesn't help *new* users of your package who are not yet
+familiar with it. It is extremely difficult to get up and running with a
+package by having to parse an ordered list of modules, functions, and classes,
+not to mention inefficient and time consuming.
+
+Therefore, as a package creator looking to spread the wonders of your software,
+it is in your interest to include some usage instructions for the package.
+These instructions should take the form of an easily comprehensible narrative,
+leading the new user along step by step towards a practical goal. For example,
+you could have a  section in your ``usage.rst`` file called "Getting Started"
+that takes the form of a tutorial. This tutorial would lead an absolute
+beginner through the steps of generating their first result with your package,
+from importing the correct modules and formulating the inputs, all the way to
+visualising and verifying the output. This first tutorial should be short and
+accessible, and further tutorials and how-tos can be more expansive.
+
+The sections below give you some tools to enrich this narrative with useful
+document elements, like code blocks that will indicate what the user needs to
+type and maths expressions that explain the basis your methodology or theory.
 
 Code Blocks
 ^^^^^^^^^^^
