@@ -266,8 +266,8 @@ While not all projects strictly enfore PEP8, we generally recommend it.
 This will list linting or stylistic errors. If there is no output, all is well.
 See the `flake8 documentation <http://flake8.pycqa.org/en/latest/>`_ for more.
 
-In addition to using ``flake8``, many IDEs (Integrated development environment) have 
-their own linter either built-in or configurable. For example one popular IDE 
+In addition to using ``flake8``, many IDEs (Integrated development environment) and 
+text editors have their own linter either built-in or configurable. For example one popular editor
 `Emacs <https://www.gnu.org/software/emacs/>`_
 has a package manager that allows for the 
 installation of 
