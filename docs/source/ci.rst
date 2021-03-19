@@ -21,6 +21,24 @@ of your machine. It also creates a clear, public record of whether the tests
 passed or failed, so if things are accidentally broken (say, while you are on
 vacation) you can trace when the breaking change occurred.
 
+GitLab CI configuration
+---------------------------------------------
+The UKAEA GitLab has its own CI service with it's own distinct configuration. An example
+of such a configuration file is included in the cookiecutter template. 
+
+.. literalinclude:: .example-gitlab-ci.yml
+
+Using GitLab CI
+---------------------------------------------
+The config file, ``.gitlab-ci.yml``, included in the cookiecutter template will be 
+automatically recognised and used to configure the CI service.
+Alternatively if a different configuration for the CI is needed then one can be set 
+up by deleting the existing config and using the ``Set up CI/CD`` button on your 
+repository homepage. For convenience there are also many templates that can be chosen. 
+If a non-template-based configuration file is needed then a step-by-step guide for 
+`writing a .gitlab-ci.yml file <https://git.ccfe.ac.uk/help/user/project/pages/getting_started_part_four.md>`_
+is available.
+
 Travis-CI Configuration
 -----------------------
 
@@ -61,25 +79,6 @@ Activate Travis-CI for Your GitHub Repository
     harm to *also* activate Travis-CI for your personal fork at
     ``https://travis-ci.org/profile``, but it's more important to activate it for
     the upstream fork associated with the organization.
-
-GitLab CI configuration
----------------------------------------------
-The UKAEA GitLab has its own CI service with it's own distinct configuration. An example
-of such a configuration file is included in the cookiecutter template. 
-
-.. literalinclude:: .example-gitlab-ci.yml
-
-Using GitLab CI
----------------------------------------------
-If ``.example-gitlab-ci.yml`` is included in the project that 
-is being uploaded to GitLab (after being renamed as ``.gitlab-ci.yml``)
-then it will be automatically recognised and used to configure the CI service.
-Alternatively if no ``.gitlab-ci.yml`` file is included then one can be set up 
-using the ``Set up CI/CD`` button on your repository homepage. For convenience 
-there are also many templates that can be chosen. If a manual configuration file 
-is needed then a step-by-step guide for 
-`writing a .gitlab-ci.yml file <https://git.ccfe.ac.uk/help/user/project/pages/getting_started_part_four.md>`_
-is available.
 
 Code Coverage
 ---------------------------------------------
