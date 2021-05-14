@@ -5,8 +5,8 @@ Continous Integration Testing
 In this section you will:
 
 * Understand the benefits Continuous Integration.
-* Configure Travis-CI, a "continuous integration" service, to operate on your
-  GitHub repository.
+* Configure GitLab CI or Travis-CI, "continuous integration" services, to
+  operate on your repository.
 
 What is CI for?
 ---------------
@@ -23,7 +23,7 @@ vacation) you can trace when the breaking change occurred.
 
 GitLab CI configuration
 ---------------------------------------------
-The UKAEA GitLab has its own CI service with it's own distinct configuration. An example
+The UKAEA GitLab has its own CI servers with their own distinct configuration. An example
 of such a configuration file is included in the cookiecutter template. 
 
 .. literalinclude:: .example-gitlab-ci.yml
@@ -42,9 +42,9 @@ is available.
 Travis-CI Configuration
 -----------------------
 
-The cookiecutter template has already generated a configuration file for
-Travis-CI, which is one of several CI services that are free for public
-open-source projects.
+If instead you are using GitHub, the cookiecutter template also has generated a
+configuration file for Travis-CI, which is one of several CI services that are
+free for public open-source projects.
 
 .. literalinclude:: example_travis.yml
 
@@ -82,16 +82,25 @@ Activate Travis-CI for Your GitHub Repository
 
 Code Coverage
 ---------------------------------------------
-The example GitLab CI configuration file, ``.example-gitlab-ci.yml`` runs a number 
-of commands in the ``testing`` stage concerning code coverage. The 
+The example GitLab CI configuration file, ``.gitlab-ci.yml`` runs a number 
+of commands in the ``tests`` stage concerning code coverage. The 
 `coverage <https://coverage.readthedocs.io/en/coverage-5.5/#quick-start>`_ 
-package is one of the packages in ``requirements-dev.txt``. This can generate 
-a report of the coverage of the tests that are run, as in what percentage of 
-lines of code are executed when the tests are run. If this is a low percentage 
-then there may be bugs hiding in the code which cannot be identified as the 
-tests do not cover the lines where they may be hiding. The 
+package is one of the packages pre-populated in ``requirements-dev.txt``. This
+can generate a report of the coverage of the tests that are run, as in what
+percentage of lines of code are executed when the tests are run. If this is a
+low percentage then there may be bugs hiding in the code which cannot be
+identified as the tests do not cover the lines where they may be hiding. 
+
+GitLab CI has the ability to parse the reports from ``coverage`` and
+produce an overall test coverage badge (see the "Settings > CI > General"
+section to find it) as well as test coverage visualisation for merge requests.
+
+.. note::
+
+    Test coverage visualisation is a bit hacky at the moment. Don't be
+    surprised if it doesn't show up or stops working.
+
+Alternatively, GitHub does not come with test coverage reporting out of the
+box, and you must use the 
 `codecov <https://github.com/codecov/codecov-python>`_
-package is then used to generate data that can be used by GitHub or GitLab for 
-visualization of the coverage report. There are alternatives to using ``coverage``
-or ``codecov``, for example 
-`pytest-cov <https://pypi.org/project/pytest-cov/>`_.
+package instead.
