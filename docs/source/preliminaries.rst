@@ -104,8 +104,14 @@ goes wrong, and debug if necessary. We recommend you do the same.
 
    .. code-block:: bash
    
-      cookiecutter https://github.com/NSLS-II/scientific-python-cookiecutter
+      cookiecutter https://git.ccfe.ac.uk/soft-eng-group/rse/skeleton-repositories/python-skeleton-tutorial
 
+   or if you prefer to not have to enter your GitLab username and password and
+   have SSH keys set up:
+
+   .. code-block:: bash
+      git clone git@git.ccfe.ac.uk/soft-eng-group/rse/skeleton-repositories/python-skeleton-tutorial
+      cookiecutter <path/to/cloned/repo/above>
 
    You will see the following the prompts. The default suggestion is given in
    square brackets.
@@ -116,20 +122,21 @@ goes wrong, and debug if necessary. We recommend you do the same.
 
    .. code-block:: bash
 
-      full_name [Name or Organization]: Brookhaven National Lab
-      email []: dallan@bnl.gov
-      github_username []: danielballan
+      full_name [Your Name or Your Organization]: Matthew Bluteau
+      email []: matthew.bluteau@ukaea.uk
+      vcs_domain [git.ccfe.ac.uk]: 
+      vcs_username []: mbluteau
       project_name [Your Project Name]: Example
-      package_dist_name [example]:
-      package_dir_name [example]:
-      repo_name [example]:
-      project_short_description [Python package for doing science.]: Example package for docs.
-      year [2018]:
+      package_dist_name [example]: 
+      package_dir_name [example]: 
+      repo_name [example]: 
+      project_short_description [Python package for doing science.]: 
+      year [2020]: 2021
       Select minimum_supported_python_version:
-      1 - Python 3.6
-      2 - Python 3.7
-      3 - Python 3.8
-      Choose from 1, 2, 3 [1]:
+      1 - 3.6
+      2 - 3.7
+      3 - 3.8
+      Choose from 1, 2, 3 [1]: 1
 
    This generates a new directory, ``example`` in this case, with all the
    "scaffolding" of a working Python project.
