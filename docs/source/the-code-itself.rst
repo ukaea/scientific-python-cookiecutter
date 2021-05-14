@@ -266,6 +266,22 @@ While not all projects strictly enfore PEP8, we generally recommend it.
 This will list linting or stylistic errors. If there is no output, all is well.
 See the `flake8 documentation <http://flake8.pycqa.org/en/latest/>`_ for more.
 
+In addition to using ``flake8``, many IDEs (Integrated development environment) and 
+text editors have their own linter either built-in or configurable. For example one popular editor
+`Emacs <https://www.gnu.org/software/emacs/>`_
+has a package manager that allows for the 
+installation of 
+`Flycheck <https://www.flycheck.org/en/latest/user/installation.html#package-installation>`_. 
+This package supports 
+`various linting checkers <https://www.flycheck.org/en/latest/languages.html#python>`_.
+For Vim one of the options is `ALE <https://github.com/dense-analysis/ale>`_
+(Asynchronous Linting Engine). Visual Studio Code has an 
+`in-built <https://code.visualstudio.com/docs/python/linting>`_ 
+functionality for linting which also allows for third-party linters to be used.
+The main advantage of these solutions is choice(different linters) and in some cases
+to be able to run linting in real-time without having to run the ``flake8`` command 
+manually everytime a change is made to the code.
+
 Commit and Push Changes
 -----------------------
 

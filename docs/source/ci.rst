@@ -5,8 +5,8 @@ Continous Integration Testing
 In this section you will:
 
 * Understand the benefits Continuous Integration.
-* Configure Travis-CI, a "continuous integration" service, to operate on your
-  GitHub repository.
+* Configure GitLab CI or Travis-CI, "continuous integration" services, to
+  operate on your repository.
 
 What is CI for?
 ---------------
@@ -21,12 +21,30 @@ of your machine. It also creates a clear, public record of whether the tests
 passed or failed, so if things are accidentally broken (say, while you are on
 vacation) you can trace when the breaking change occurred.
 
+GitLab CI configuration
+---------------------------------------------
+The UKAEA GitLab has its own CI servers with their own distinct configuration. An example
+of such a configuration file is included in the cookiecutter template. 
+
+.. literalinclude:: .example-gitlab-ci.yml
+
+Using GitLab CI
+---------------------------------------------
+The config file, ``.gitlab-ci.yml``, included in the cookiecutter template will be 
+automatically recognised and used to configure the CI service.
+Alternatively if a different configuration for the CI is needed then one can be set 
+up by deleting the existing config and using the ``Set up CI/CD`` button on your 
+repository homepage. For convenience there are also many templates that can be chosen. 
+If a non-template-based configuration file is needed then a step-by-step guide for 
+`writing a .gitlab-ci.yml file <https://git.ccfe.ac.uk/help/user/project/pages/getting_started_part_four.md>`_
+is available.
+
 Travis-CI Configuration
 -----------------------
 
-The cookiecutter template has already generated a configuration file for
-Travis-CI, which is one of several CI services that are free for public
-open-source projects.
+If instead you are using GitHub, the cookiecutter template also has generated a
+configuration file for Travis-CI, which is one of several CI services that are
+free for public open-source projects.
 
 .. literalinclude:: example_travis.yml
 
@@ -61,3 +79,28 @@ Activate Travis-CI for Your GitHub Repository
     harm to *also* activate Travis-CI for your personal fork at
     ``https://travis-ci.org/profile``, but it's more important to activate it for
     the upstream fork associated with the organization.
+
+Code Coverage
+---------------------------------------------
+The example GitLab CI configuration file, ``.gitlab-ci.yml`` runs a number 
+of commands in the ``tests`` stage concerning code coverage. The 
+`coverage <https://coverage.readthedocs.io/en/coverage-5.5/#quick-start>`_ 
+package is one of the packages pre-populated in ``requirements-dev.txt``. This
+can generate a report of the coverage of the tests that are run, as in what
+percentage of lines of code are executed when the tests are run. If this is a
+low percentage then there may be bugs hiding in the code which cannot be
+identified as the tests do not cover the lines where they may be hiding. 
+
+GitLab CI has the ability to parse the reports from ``coverage`` and
+produce an overall test coverage badge (see the "Settings > CI > General"
+section to find it) as well as test coverage visualisation for merge requests.
+
+.. note::
+
+    Test coverage visualisation is a bit hacky at the moment. Don't be
+    surprised if it doesn't show up or stops working.
+
+Alternatively, GitHub does not come with test coverage reporting out of the
+box, and you must use the 
+`codecov <https://github.com/codecov/codecov-python>`_
+package instead.
