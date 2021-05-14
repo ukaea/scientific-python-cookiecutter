@@ -6,5 +6,9 @@ exclude =
     dist,
     versioneer.py,
     {{ cookiecutter.package_dir_name }}/_version.py,
-    docs/source/conf.py
+    docs/source/conf.py,
+    venv,
+    env,
+    .venv,
+    .env
 max-line-length = 115
