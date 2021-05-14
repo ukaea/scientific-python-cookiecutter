@@ -4,10 +4,10 @@ Getting Started
 
 In this section you will:
 
-* Decide on a version control platform.
-* Generate a scaffold for your new Python project.
-* Upload it to the version control remote.
-* Install your new Python project for development.
+- Decide on a version control platform.
+- Generate a scaffold for your new Python project.
+- Upload it to the version control remote.
+- Install your new Python project for development.
 
 Then, in the next section, we will begin to move your scientific code into that
 template.
@@ -110,6 +110,7 @@ goes wrong, and debug if necessary. We recommend you do the same.
    have SSH keys set up:
 
    .. code-block:: bash
+
       git clone git@git.ccfe.ac.uk/soft-eng-group/rse/skeleton-repositories/python-skeleton-tutorial
       cookiecutter <path/to/cloned/repo/above>
 
