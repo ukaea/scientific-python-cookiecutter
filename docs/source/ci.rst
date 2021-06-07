@@ -94,6 +94,8 @@ identified as the tests do not cover the lines where they may be hiding.
 GitLab CI has the ability to parse the reports from ``coverage`` and
 produce an overall test coverage badge (see the "Settings > CI > General"
 section to find it) as well as test coverage visualisation for merge requests.
+Both of these features have already been set up in the ``.gitlab-ci.yml`` file
+with the cookie-cutter. 
 
 .. note::
 
@@ -103,4 +105,6 @@ section to find it) as well as test coverage visualisation for merge requests.
 Alternatively, GitHub does not come with test coverage reporting out of the
 box, and you must use the 
 `codecov <https://github.com/codecov/codecov-python>`_
-package instead.
+package instead. The Travis-CI file uses a bash script to upload the coverage
+report, but you will need to sign up to codecov in order to use this. You can
+use your GitHub account to sign up to codecov.
