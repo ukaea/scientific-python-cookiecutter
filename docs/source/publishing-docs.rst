@@ -2,15 +2,34 @@
 Publishing the Documentation
 ============================
 
-In this section you will publish your documentation on a public website hosted
+In this section you will publish your documentation on a website for others to
+view. This is an important step to make your package more accessible and
+usable. If you are using the internal UKAEA GitLab, the documentation will be
+hosted using GitLab Pages, a built-in service of the GitLab server. Keep in
+mind that like GitLab itself, this will only be visible to users with access to
+GitLab and the VPN. If your repo is on GitHub, then the docs will be hosted
 by GitHub Pages.
 
-This section assume you have already set up Travis-CI, as we covered in a
-previous section, :doc:`ci`.
+This section assume you have already set up your CI pipeline, as we covered in
+a previous section, :doc:`ci`.
 
-Configure Doctr
----------------
+Documentation on Git*Lab* Pages
+-------------------------------
 
+GitLab makes deploying and hosting your documentation simple. Deployment of
+your project's documentation to GitLab Pages is already set up in the
+``.gitlab-ci.yml`` file provided in the cookie-cutter (see the ``pages`` job),
+and it is done for every commit to the main branch. GitLab CI recognises ``pages``
+as a special name for the job and automatically handles the deployment and
+hosting of any artifacts stored in the special folder ``public/``. Of course,
+these artifacts must be valid, static HTML pages, and the HTML built by Sphinx
+for your project is perfectly suited. You can find further details
+in `GitLab's documentation <https://git.ccfe.ac.uk/help/user/project/pages/index.md>`_.
+
+Documentation on Git*Hub* Pages
+-------------------------------
+
+Unfortunately, deploying your documentation with GitHub is not as easy.
 We recommend `doctr <https://drdoctr.github.io>`_ a tool that configures
 Travis-CI to automatically publish your documentation every time the master
 branch is updated.
@@ -27,7 +46,7 @@ Install doctr.
 
       python3 -m pip install --upgrade doctr
 
-Just type ``doctr configure`` and follow the prompts. Example:
+Type ``doctr configure`` and follow the prompts. Example:
 
 .. code-block:: bash
 
