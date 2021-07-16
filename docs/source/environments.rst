@@ -2,15 +2,20 @@
 Environments and Package Managers
 =================================
 
+Pip and venv
+------------
+
 Throughout this tutorial, we used ``pip``, a Python package manager, to install
 our software and other Python software we needed. In :doc:`preliminaries`, we
 used ``venv`` to create a "virtual environment", a sandbox separate from the
 general system Python where we could install and use software without
 interfering with any system Python tools or other projects.
 
-There are many alternatives to ``venv``.
-`This post of Stack Overflow <https://stackoverflow.com/a/41573588/1221924>`_
-is a good survey of the field.
+This tool chain is perfectly valid and effective, but you made find that as your
+project evolves, other tools might be necessary for managing packages and
+virtual environments (e.g. if you need to work with multiple versions of
+Python). There are many alternatives to ``venv``.  `This post of Stack Overflow
+<https://stackoverflow.com/a/41573588/1221924>`_ is a good survey of the field.
 
 Conda
 -----
