@@ -135,6 +135,15 @@ wait to publish a release until your package is usable and tested.
    .. code-block:: bash
 
       git clean -dfx
+   
+   If you want to retain your virtual environment, then instead use this slight variant: 
+
+   .. code-block:: bash
+
+      git clean -dfx -e <virtual_environment_folder>
+   
+   However, virtual environments should be treated as disposable, and it is good
+   to clear things out every once in a while.
 
 #. Publish a release on PyPI. Note that you might need to configure
    your ``~/.pypirc`` with a login token. See `the packaging documentation <https://packaging.python.org/specifications/pypirc/>`_ for more details.
