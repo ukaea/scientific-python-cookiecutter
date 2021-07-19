@@ -2,7 +2,7 @@
 Getting Started
 ===============
 
-In this section you will:
+In this section you will [2]_:
 
 - Decide on a version control platform.
 - Generate a scaffold for your new Python project.
@@ -16,13 +16,15 @@ You will need a Terminal (Windows calls it a "Command Prompt") and a plain text
 editor. Any will do; we won't assume anything about the editor you are using.
 If you are looking for a recommendation for beginners, the `Atom Editor
 <https://atom.io/>`_ by GitHub is a good one. For minimalists, ``nano`` on
-Linux or OSX and Notepad on Windows will get you up and running.
+Linux or OSX and Notepad++ on Windows will get you up and running.
 
 However, as you develop your programming skills, you will probably want to
 correspondingly improve the tool you use to edit code. Most software developers
-use something called an Integrated Development Environment (IDE). We have some
-recommendations about good IDEs for Python here (TODO add link). If you are
-more of an eccentric (read awesome), `Vim <https://www.vim.org/>`_ or 
+use something called an Integrated Development Environment (IDE). At UKAEA,
+VS Code or PyCharm are the most popular IDEs for Python, and you can find more
+information on `our website
+<https://intranet.ukaea.uk/software/guides/integrated-development-environments.html#selecting-an-IDE>`_.
+If you are more of an eccentric (read awesome), `Vim <https://www.vim.org/>`_ or
 `Emacs <https://www.gnu.org/software/emacs/>`_ are very customisable text
 editors which are tuned for software development.
 
@@ -408,7 +410,10 @@ start moving your scientific code into the project.
 
 
 .. [1] You only need to pull the cookiecutter once. It will be stored locally at
-``~/.cookiecutters/python-skeleton-tutorial`` such that you can use it again by
-issuing ``$ cookiecutter python-skeleton-tutorial`` from your command line at
-any location. However, every once in a while it might be a good idea to do a
-pull like above from the repository to get any updates to the template.
+   ``~/.cookiecutters/python-skeleton-tutorial`` such that you can use it again by
+   issuing ``$ cookiecutter python-skeleton-tutorial`` from your command line at
+   any location. However, every once in a while it might be a good idea to do a
+   pull like above from the repository to get any updates to the template.
+
+.. [2] If at any point you need help with the cookiecutter or anything software
+   related, please reach out to `the RSE team <https://intranet.ukaea.uk/software/community/>`_.
