@@ -114,13 +114,23 @@ update our package's ``requirements.txt``.
    numpy
 
 Our cookiecutter configured ``setup.py`` to read this file. It will ensure that
-numpy is installed when our package is installed.
-
-We can test it by reinstalling the package.
+numpy is installed when our package is installed. We can test it by reinstalling the package.
 
 .. code-block:: bash
 
    python3 -m pip install -e .
+
+Anytime you add a new dependency for your project (i.e. ``import`` some new
+library in your code), you should immediately list the dependency in this file.
+You only need to list dependencies that are **not** in the Python Standard
+Library. Please consult `the list of all modules in the Standard Library
+<https://docs.python.org/3/py-modindex.html>`_ to see if the library you are
+using is already there.
+
+If you need to specify a particular version for a dependency, then consult `the
+pip documentation
+<https://pip.pypa.io/en/stable/cli/pip_install/#requirement-specifiers>`_.
+
 
 Try it
 ------
