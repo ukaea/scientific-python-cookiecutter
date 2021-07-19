@@ -100,7 +100,7 @@ goes wrong, and debug if necessary. We recommend you do the same.
       <environment>`, and then install cookiecutter in that.
 
 
-#. Generate a new Python project using our cookiecutter template.
+#. Generate a new Python project using our cookiecutter template [1]_.
 
    .. code-block:: bash
    
@@ -399,9 +399,16 @@ goes wrong, and debug if necessary. We recommend you do the same.
    documentation). The cookiecutter template has listed some defaults in
    ``requirements-dev.txt``. Install them now.
 
-  .. code-block:: bash
+   .. code-block:: bash
 
-     python3 -m pip install --upgrade -r requirements-dev.txt
+      python3 -m pip install --upgrade -r requirements-dev.txt
 
 Now we have a working but empty Python project. In the next section, we'll
 start moving your scientific code into the project.
+
+
+.. [1] You only need to pull the cookiecutter once. It will be stored locally at
+``~/.cookiecutters/python-skeleton-tutorial`` such that you can use it again by
+issuing ``$ cookiecutter python-skeleton-tutorial`` from your command line at
+any location. However, every once in a while it might be a good idea to do a
+pull like above from the repository to get any updates to the template.
