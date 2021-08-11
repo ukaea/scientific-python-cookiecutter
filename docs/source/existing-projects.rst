@@ -57,3 +57,85 @@ The recommendations we make are based on what we deem to be "good practice" in
 most cases. However, the criteria for your project might require you to use
 different tools, and that is absolutely fine, as long as you are clear what your
 criteria are and that the alternate tools fulfill them.
+
+Full Conversion
+---------------
+
+There are a variety of steps to consider for a full conversion, and they depend
+on the degree of existing infrastructure in your project. Follow those that are
+applicable to your situation.
+
+Version control
+^^^^^^^^^^^^^^^
+
+If the project that you are converting is already under version control, then
+you will want to retain the history of the source files you have been working
+on. If you use a version control system other than ``git``, you will need to
+decide if you want to keep using that system (likely less hassle, but then the
+release process in this tutorial won't work) or migrate to using ``git`` like
+this tutorial advises (more hassle as you will need to figure out a conversion
+step to make your repository a ``git`` repository).
+
+If you use git already, this is a bit easier, but there are still many pitfalls,
+so use these steps as a guide:
+
+#. Create a "dummy" cookiecutter directory outside of the directory that your
+   existing project is in (e.g. put it next to your project's directory). 
+
+   .. code-block:: bash
+
+      cd directory_next_to_project
+      cookiecutter scientific-python-cookiecutter # this should be cached from before
+   
+   And then fill out the prompts as if it were for your current project, using
+   the instructions from :doc:`preliminaries`.  Even though you will not be
+   directly using this directory for your project, it is helpful to fill out the
+   cookiecutter prompts accurately so that you can drop in any relevant
+   configuration files from the cookiecutter with little or no modification.
+
+#. Change into the cookiecutter-generated directory and initiate a ``git`` repo.
+
+   .. code-block:: bash
+
+      cd cookie_cutter_generated_directory
+      git init
+      git branch -m main
+      git add .
+      git commit -m "Scientific Python cookiecutter scaffolding"
+   
+#. Move back to your original project repository and add the cookiecutter one as
+   a remote:
+
+   .. code-block:: bash
+
+      cd /path/to/original_project_directory
+      git remote add -m main cookiecutter /absolute/or/relative/path/to/cookie_cutter_generated_directory
+      git fetch cookiecutter
+
+#. Merge in the cookiecutter structure to your project.
+
+   .. code-block:: bash
+
+      # make sure you are on an appropriate branch, probably not main/master
+      git checkout -b project-structure-update
+      git merge --allow-unrelated-histories cookiecutter/main 
+   
+   Depending on your project setup, there might be file conflicts. You will need
+   to manually go through the files that git has identified, and resolve those
+   conflicts. This is somewhat tedious, but less error-prone and no more tedious
+   than copying over files from the cookiecutter manually with ``cp``.
+
+#. Move your source files into the correct location if they are not already
+   there. Again, how easy this is will depend on how you have structured you
+   project up to this point. Regardless, you should use the ``git mv`` command.
+
+   .. code-block:: bash
+
+      git mv source1.py source2.py package_dir_name/
+
+#. To get the full history of a file that has moved, be aware that you will need
+   to pass the ``--follow`` command to ``git log``
+
+   .. code-block:: bash
+
+      git log --follow  file_that_has_moved.py
