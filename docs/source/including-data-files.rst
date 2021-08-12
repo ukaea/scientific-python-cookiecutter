@@ -32,7 +32,7 @@ Alternatives:
   public URL? This is the approach used by projects such as scikit-learn that
   need to download large datasets for their examples and tests.
 
-If you use one these alternatives, add the names of the generated or downloaded
+If you use one of these alternatives, add the names of the generated or downloaded
 files to the project's ``.gitignore`` file, which was provided by the
 cookiecutter template. This helps protect you against accidentally committing
 the file to git.

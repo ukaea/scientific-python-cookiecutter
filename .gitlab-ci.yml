@@ -1,0 +1,63 @@
+default:
+  image: python:latest
+
+# Change pip's cache directory to be inside the project directory since we can
+# only cache local items.
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+# Pip's cache doesn't store the python packages
+# https://pip.pypa.io/en/stable/reference/pip_install/#caching
+#
+# If you want to also cache the installed packages, you have to install
+# them in a virtualenv and cache it as well.
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+before_script:
+  - python -V               # Print out python version for debugging
+  - python -m venv venv
+  - source venv/bin/activate
+
+workflow:
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+    - if: '$CI_COMMIT_BRANCH == "master"' 
+    - if: $CI_COMMIT_TAG
+
+stages:
+  - build
+  - deploy
+
+build-tutorial:
+  stage: build
+  script:
+    - export
+    - set -e
+    - pip install -r requirements.txt 
+    - ./run_cookiecutter_example.py
+    - pip install -e example/
+    - pip install -r example/requirements-dev.txt 
+    - ./copy_user_content.sh
+    - pytest example/
+    - make -C example/docs html
+    - make -C docs html
+  artifacts:
+    paths:
+      - docs/build/html/
+      - example/docs/build/html/
+    expire_in: 1 week
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public/
+    - cp -a docs/build/html/* public/
+  artifacts:
+    paths:
+      - public/
+    expire_in: 1 year
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"' 

@@ -114,13 +114,23 @@ update our package's ``requirements.txt``.
    numpy
 
 Our cookiecutter configured ``setup.py`` to read this file. It will ensure that
-numpy is installed when our package is installed.
-
-We can test it by reinstalling the package.
+numpy is installed when our package is installed. We can test it by reinstalling the package.
 
 .. code-block:: bash
 
    python3 -m pip install -e .
+
+Anytime you add a new dependency for your project (i.e. ``import`` some new
+library in your code), you should immediately list the dependency in this file.
+You only need to list dependencies that are **not** in the Python Standard
+Library. Please consult `the list of all modules in the Standard Library
+<https://docs.python.org/3/py-modindex.html>`_ to see if the library you are
+using is already there.
+
+If you need to specify a particular version for a dependency, then consult `the
+pip documentation
+<https://pip.pypa.io/en/stable/cli/pip_install/#requirement-specifiers>`_.
+
 
 Try it
 ------
@@ -265,6 +275,22 @@ While not all projects strictly enfore PEP8, we generally recommend it.
 
 This will list linting or stylistic errors. If there is no output, all is well.
 See the `flake8 documentation <http://flake8.pycqa.org/en/latest/>`_ for more.
+
+In addition to using ``flake8``, many IDEs (Integrated development environment) and 
+text editors have their own linter either built-in or configurable. For example one popular editor
+`Emacs <https://www.gnu.org/software/emacs/>`_
+has a package manager that allows for the 
+installation of 
+`Flycheck <https://www.flycheck.org/en/latest/user/installation.html#package-installation>`_. 
+This package supports 
+`various linting checkers <https://www.flycheck.org/en/latest/languages.html#python>`_.
+For Vim one of the options is `ALE <https://github.com/dense-analysis/ale>`_
+(Asynchronous Linting Engine). Visual Studio Code has an 
+`in-built <https://code.visualstudio.com/docs/python/linting>`_ 
+functionality for linting which also allows for third-party linters to be used.
+The main advantage of these solutions is choice(different linters) and in some cases
+to be able to run linting in real-time without having to run the ``flake8`` command 
+manually everytime a change is made to the code.
 
 Commit and Push Changes
 -----------------------

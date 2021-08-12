@@ -3,3 +3,8 @@ docs/source/generated/
 *.swp
 example/
 __pycache__/
+env/
+venv/
+.env/
+.venv/
+.vscode/

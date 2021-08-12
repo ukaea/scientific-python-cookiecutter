@@ -4,13 +4,16 @@ import pexpect
 p = pexpect.spawn('cookiecutter .')
 
 p.expect('full_name .*')
-p.sendline('Brookhaven National Lab')
+p.sendline('UKAEA')
 
 p.expect('email .*')
-p.sendline('dallan@bnl.gov')
+p.sendline('rse@o365.ukaea.uk')
 
-p.expect('github_username .*')
-p.sendline('danielballan')
+p.expect('vcs_domain .*')
+p.sendline('git.ccfe.ac.uk')
+
+p.expect('vcs_username .*')
+p.sendline('soft-eng-group')
 
 p.expect('project_name .*')
 p.sendline('Example')
@@ -34,4 +37,4 @@ p.expect('Select minimum_supported_python_version.*')
 p.sendline('')
 
 # Runs until the cookiecutter is done; then exits.
-p.interact()
+p.wait()

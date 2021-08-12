@@ -3,7 +3,18 @@ Guiding Design Principles
 =========================
 
 In this section we summarize some guiding principles for designing and
-organizing scientific Python code.
+organizing scientific Python code. Before diving in, it should be noted that
+none of these are anything close to "rules". They are ideas to keep in mind
+when writing your code, so don't get too bogged down in making sure you have
+satisfied each and every one. 
+
+Moreover, the points below barely scratch the surface. Software design is much
+more of an art than a science, and it is something that must be refined over
+time with intentional practice. The RSE Team runs a "Software
+Best Practices" Course that covers many of the topics here in a little more
+detail. The content of `the course is available on GitLab
+<https://git.ccfe.ac.uk/software-training/software-best-practices>`_ and you
+can register for instructor-led sessions on U4BW.
 
 Collaborate
 -----------
@@ -38,7 +49,13 @@ No code is ever right the first (or second) time.
 
 Refactoring the code once you understand the problem and the design trade-offs
 more fully helps keep the code maintainable. Version control, tests, and
-linting are your safety net, empowering you to make changes with confidence.
+linting are your safety net, empowering you to make changes with confidence. A
+nice resource for refactoring strategies is `Refactoring Guru
+<https://refactoring.guru/refactoring>`_, and there was `a recent Coding
+Discussion Group presentation on refactoring
+<https://git.ccfe.ac.uk/software-training/Coding_Discussion_Group/-/blob/master/Meetings/2020_12_04-HBrooks-Code_refactoring/2020_12_04-HBrooks-Code_refactoring.pdf>`_.
+Modern IDEs will have many builtin tools to assist with the implementation of
+refactoring techniques.
 
 Prefer "Wide" over "Deep"
 -------------------------
@@ -55,6 +72,13 @@ related scientific applications, and next year.
 Take the time to understand how things need to work at the bottom. It is better
 to slowly deploy a robust extensible solution than to quickly deploy a brittle
 narrow solution.
+
+Writing *modular* code is your friend here. Don't write a monolithic procedural
+script that goes through your particular analysis or use-case step-by-step.
+This is not reusable. Instead, create functions for bits of code that you find
+yourself reusing (see :ref:`advice below <small-functions>`) and group related
+functions and classes into modules so that they can be used in other modules
+and to avoid name clashing.
 
 Keep I/O Separate
 -----------------
@@ -75,6 +99,31 @@ Duck Typing is a Good Idea
 `Duck typing <https://en.wikipedia.org/wiki/Duck_typing>`_ treats objects based
 on what they can *do*, not based on what type they *are*. "If it walks like a
 duck and it quacks like a duck, then it must be a duck."
+
+Consider this more concrete albeit contrived example. 
+
+.. code-block:: python
+
+   class Duck:
+       def fly(self):
+           print("Duck flying")
+
+   class Goose:
+       def fly(self):
+           print("Goose flying")
+
+   class Whale:
+       def swim(self):
+           print("Whale swimming")
+   
+   for animal in Duck(), Goose(), Whale():
+       animal.fly()
+
+In statically typed languages, this would not compile and run. But in Python
+this code will run right up until the point that the ``fly()`` method is not
+found on the ``Whale`` object. The for loop treats both ``Duck`` and ``Goose``
+objects equally because they implement the ``fly()`` method. This is
+*duck-typing*.
 
 Python in general and scientific Python in particular leverage *interfaces* to
 support interoperability and reuse. For example, it is possible to pass a
@@ -128,10 +177,6 @@ users wants, separate it into two layers: a thin "friendly" layer on top of a
 work. The cranky layer should be easy to test; it should be constrained about
 what it accepts and what it returns. This layered design makes it possible to
 write *many* friendly layers with different opinions and different defaults.
-
-When it doubt, make function arguments required. Optional arguments are harder
-to discover and can hide important choices that the user should know that they
-are making.
 
 Exceptions should just be raised: don't catch them and print. Exceptions are a
 tool for being clear about what the code needs and letting the caller decide
@@ -200,6 +245,8 @@ straightforwardly.
     explicitly type ``get_image('thing.png', normalize=False)``. The latter is
     easier to read, and it enables the author to insert additional parameters
     without breaking backward compatibility.
+
+.. _small-functions:
 
 Similarly, it can be tempting to write one function that performs multiple
 steps and has many options instead of multiple functions that do a single step
