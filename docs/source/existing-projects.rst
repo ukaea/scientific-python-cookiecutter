@@ -93,7 +93,8 @@ so use these steps as a guide:
    cookiecutter prompts accurately so that you can drop in any relevant
    configuration files from the cookiecutter with little or no modification.
 
-#. Change into the cookiecutter-generated directory and initiate a ``git`` repo.
+#. Change into the cookiecutter-generated directory and initialise a ``git``
+   repo.
 
    .. code-block:: bash
 
@@ -139,3 +140,18 @@ so use these steps as a guide:
    .. code-block:: bash
 
       git log --follow  file_that_has_moved.py
+
+Testing
+^^^^^^^
+
+TODO
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+TODO
+
+Documentation
+^^^^^^^^^^^^^
+
+TODO
