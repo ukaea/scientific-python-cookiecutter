@@ -45,5 +45,6 @@ Starting from a working, full-featured template, you will:
    publishing-docs
    publishing-releases
    advanced-testing
+   existing-projects
    environments
    further-reading
