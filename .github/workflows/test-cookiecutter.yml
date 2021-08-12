@@ -3,7 +3,7 @@
 # For more information see:
 # https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actionsl
 
-name: Test Cookiecutter
+name: CI
 
 on:
   push:
@@ -35,8 +35,33 @@ jobs:
         ./copy_user_content.sh
         pytest example/
         make -C example/docs html
+    - name: Build tutorial
+      run: make -C docs html
     - name: Archive documentation build
       uses: actions/upload-artifact@v2
       with:
           name: example-docs
           path: example/docs/build/html/
+    - name: Archive tutorial build
+      uses: actions/upload-artifact@v2
+      with:
+          name: tutorial
+          path: docs/build/html/
+
+  deploy:
+
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Download tutorial build
+      uses: actions/download-artifact@v2
+      with:
+          name: tutorial
+    - name: Deploy tutorial
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/build/html
+        publish_branch: gh-pages
