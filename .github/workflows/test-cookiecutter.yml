@@ -27,7 +27,7 @@ jobs:
         python -V
         python -m pip install --upgrade pip
         python -m pip install -r requirements.txt 
-       ./run_cookiecutter_example.py
+        ./run_cookiecutter_example.py
     - name: Test cookiecutter-generated example module
       run: |
         python -m pip install -e example/
@@ -36,7 +36,7 @@ jobs:
         pytest example/
         make -C example/docs html
     - name: Archive documentation build
-        uses: actions/upload-artifact@v2
-        with:
+      uses: actions/upload-artifact@v2
+      with:
           name: example-docs
           path: example/docs/build/html/
