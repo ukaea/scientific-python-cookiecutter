@@ -1,0 +1,592 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Getting Started &mdash; Scientific Python Cookiecutter 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Code Itself" href="the-code-itself.html" />
+    <link rel="prev" title="Philosophy of this Tutorial" href="philosophy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Scientific Python Cookiecutter
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy of this Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-code-itself.html">The Code Itself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guiding-design-principles.html">Guiding Design Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ci.html">Continous Integration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-docs.html">Writing Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="including-data-files.html">Including Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publishing-docs.html">Publishing the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publishing-releases.html">Publishing Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced-testing.html">Common Patterns for Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="existing-projects.html">Converting Existing Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments.html">Environments and Package Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further-reading.html">Futher Reading</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Scientific Python Cookiecutter</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/preliminaries.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>In this section you will <a class="footnote-reference brackets" href="#id4" id="id1">2</a>:</p>
+<ul class="simple">
+<li><p>Decide on a version control platform.</p></li>
+<li><p>Generate a scaffold for your new Python project.</p></li>
+<li><p>Upload it to the version control remote.</p></li>
+<li><p>Install your new Python project for development.</p></li>
+</ul>
+<p>Then, in the next section, we will begin to move your scientific code into that
+template.</p>
+<p>You will need a Terminal (Windows calls it a “Command Prompt”) and a plain text
+editor. Any will do; we won’t assume anything about the editor you are using.
+If you are looking for a recommendation for beginners, the <a class="reference external" href="https://atom.io/">Atom Editor</a> by GitHub is a good one. For minimalists, <code class="docutils literal notranslate"><span class="pre">nano</span></code> on
+Linux or OSX and Notepad++ on Windows will get you up and running.</p>
+<p>However, as you develop your programming skills, you will probably want to
+correspondingly improve the tool you use to edit code. Most software developers
+use something called an Integrated Development Environment (IDE). At UKAEA,
+VS Code or PyCharm are the most popular IDEs for Python, and you can find more
+information on <a class="reference external" href="https://intranet.ukaea.uk/software/guides/integrated-development-environments.html#selecting-an-IDE">our website</a>.
+If you are more of an eccentric (read awesome), <a class="reference external" href="https://www.vim.org/">Vim</a> or
+<a class="reference external" href="https://www.gnu.org/software/emacs/">Emacs</a> are very customisable text
+editors which are tuned for software development.</p>
+<p>Reading the steps that follow, you might reasonably wonder, “Why isn’t there
+just an automated script for this?” We prefer to do this process manually so
+that we are forced to think carefully about each step, notice when something
+goes wrong, and debug if necessary. We recommend you do the same.</p>
+<ol class="arabic">
+<li><p>Decide where you are going to host your project and sign up if necessary.
+Please consult <a class="reference external" href="http://intranet.ccfe.ac.uk/software/guides/gitlab.html">the guidance here</a> for more
+information about your options. GitLab and GitHub are the recommended and
+most common. When in doubt, reach out to the RSE team.</p></li>
+<li><p>Verify that you have Python 3.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 --version
+</pre></div>
+</div>
+<p>If necessary, install it by your method of choice: apt, Homebrew, conda,
+etc. Also ensure that you have <code class="docutils literal notranslate"><span class="pre">pip</span></code> (in apt, this is separate from the
+<code class="docutils literal notranslate"><span class="pre">python3</span></code> package and at the time of writing is called <code class="docutils literal notranslate"><span class="pre">python3-pip</span></code>).</p>
+</li>
+<li><p>Verify that you have git installed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git
+</pre></div>
+</div>
+<p>If necessary, install it by your method of choice (apt, Homebrew, conda, etc.).</p>
+</li>
+<li><p>Choose a name for your project.</p>
+<p>Ideal names are descriptive, succinct, and easy to Google. Think about who
+else might be interested in using or contributing to your project in the
+future, and choose a name that will help that person discover your project.
+There is no need to put “py” in the name; usually your user will already
+know that this is a Python project.</p>
+<p>Check that the name is not already taken by
+<a class="reference external" href="https://pypi.org/">searching for it on the Python Package Index (PyPI)</a>.</p>
+</li>
+<li><p>Install cookiecutter.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user --upgrade cookiecutter
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--user</span></code> flag installs this package in your user space rather than
+with the system site packages. <a class="reference internal" href="#environment"><span class="std std-ref">See the comment below about
+*environments*</span></a> for why this is important. However, a downside
+of using this flag is that the <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code> executable might not be
+placed in your path, in which case your shell won’t be able to find it.
+There are a few solutions:</p>
+<ol class="arabic">
+<li><p>The easiest option is to prepend the command to execute <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code>
+with <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span></code>. The Python interpreter <em>will</em> be aware of the
+cookiecutter package in your user space, and so will have no trouble
+finding the executable.</p></li>
+<li><p>Find out where the cookiecutter executable has been installed and add
+that to your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> shell environment variable. This can be done with
+the following command from the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -c <span class="s1">&#39;import site; print(site.USER_BASE + &quot;/bin&quot;)&#39;</span>
+</pre></div>
+</div>
+<p>Add that output to <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> in your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file.</p>
+</li>
+<li><p>If you are using conda, it is fine to install <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code>
+in your base environment, or you can just go ahead and create an
+environment for this project <a class="reference internal" href="#environment"><span class="std std-ref">as detailed in the step below</span></a>, and then install cookiecutter in that.</p></li>
+</ol>
+</li>
+<li><p>Generate a new Python project using our cookiecutter template <a class="footnote-reference brackets" href="#id3" id="id2">1</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cookiecutter https://git.ccfe.ac.uk/soft-eng-group/rse/skeleton-repositories/python-skeleton-tutorial
+</pre></div>
+</div>
+<p>or if you prefer to not have to enter your GitLab username and password and
+have SSH keys set up:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@git.ccfe.ac.uk/soft-eng-group/rse/skeleton-repositories/python-skeleton-tutorial
+cookiecutter &lt;path/to/cloned/repo/above&gt;
+</pre></div>
+</div>
+<p>You will see the following the prompts. The default suggestion is given in
+square brackets.</p>
+<p>For the last question, <code class="docutils literal notranslate"><span class="pre">minimum_supported_python_version</span></code>, we recommend
+supporting back to Python 3.6 unless you have a need for newer Python
+features.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>full_name <span class="o">[</span>Your Name or Your Organization<span class="o">]</span>: Matthew Bluteau
+email <span class="o">[]</span>: matthew.bluteau@ukaea.uk
+vcs_domain <span class="o">[</span>git.ccfe.ac.uk<span class="o">]</span>:
+vcs_username <span class="o">[]</span>: mbluteau
+project_name <span class="o">[</span>Your Project Name<span class="o">]</span>: Example
+package_dist_name <span class="o">[</span>example<span class="o">]</span>:
+package_dir_name <span class="o">[</span>example<span class="o">]</span>:
+repo_name <span class="o">[</span>example<span class="o">]</span>:
+project_short_description <span class="o">[</span>Python package <span class="k">for</span> doing science.<span class="o">]</span>:
+year <span class="o">[</span><span class="m">2020</span><span class="o">]</span>: <span class="m">2021</span>
+Select minimum_supported_python_version:
+<span class="m">1</span> - <span class="m">3</span>.6
+<span class="m">2</span> - <span class="m">3</span>.7
+<span class="m">3</span> - <span class="m">3</span>.8
+Choose from <span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span> <span class="o">[</span><span class="m">1</span><span class="o">]</span>: <span class="m">1</span>
+</pre></div>
+</div>
+<p>This generates a new directory, <code class="docutils literal notranslate"><span class="pre">example</span></code> in this case, with all the
+“scaffolding” of a working Python project.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls example/
+AUTHORS.rst        MANIFEST.in     example                 setup.cfg
+CONTRIBUTING.rst   README.rst      requirements-dev.txt    setup.py
+LICENSE            docs            requirements.txt        versioneer.py
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cookiecutter prompted us for several variations of <em>name</em>.
+If are you wondering what differentiates all these names, here’s a primer,
+and make sure to pay attention to the punctuation allowed for each:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">project_name</span></code> – Human-friendly title. Case sensitive. Spaces allowed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package_dist_name</span></code> – The name to use when you <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">___</span></code>.
+Dashes and underscores are allowed. Dashes are conventional. Case
+insensitive.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package_dir_name</span></code> — The name to use when you <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">___</span></code> in Python.
+<strong>Underscores are the only punctuation allowed.</strong> Conventionally
+lowercase.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">repo_name</span></code> — The name of the GitHub repository. This will be the
+name of the new directory on your filesystem.</p></li>
+</ul>
+</div>
+</li>
+<li><p>Take a moment to see what we have. (Some systems treat files whose name
+begins with <code class="docutils literal notranslate"><span class="pre">.</span></code> as “hidden files”, not shown by default. Use the <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code>
+command in the Terminal to show them.)</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>example/
+├── .flake8
+├── .gitattributes
+├── .gitignore
+├── .travis.yml
+├── AUTHORS.rst
+├── CONTRIBUTING.rst
+├── LICENSE
+├── MANIFEST.in
+├── README.rst
+├── docs
+│   ├── Makefile
+│   ├── build
+│   ├── make.bat
+│   └── source
+│       ├── _static
+│       │   └── .placeholder
+│       ├── _templates
+│       ├── conf.py
+│       ├── index.rst
+│       ├── installation.rst
+│       ├── release-history.rst
+│       └── usage.rst
+├── example
+│   ├── __init__.py
+│   ├── _version.py
+│   └── tests
+│       └── test_examples.py
+├── requirements-dev.txt
+├── requirements.txt
+├── setup.cfg
+├── setup.py
+└── versioneer.py
+</pre></div>
+</div>
+<p>In this top <code class="docutils literal notranslate"><span class="pre">example/</span></code> directory, we have files specifying metadata about
+the Python package (e.g. <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>) and configuration files related to
+tools we will cover in later sections. We are mostly concerned with the
+<code class="docutils literal notranslate"><span class="pre">example/example/</span></code> subdirectory, which is the Python package itself. This
+is where we’ll put the scientific code. But first, we should get a proper
+development environment and version-control our project using git.</p>
+</li>
+<li><p>Change directories into your new project.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> example
+</pre></div>
+</div>
+<p>We are now in the top-level <code class="docutils literal notranslate"><span class="pre">example/</span></code> directory—not <code class="docutils literal notranslate"><span class="pre">example/example</span></code>!</p>
+</li>
+<li><p id="environment">Create an <em>environment</em>, a sandboxed area for installing
+software that is separate from the system defaults. This is not essential,
+but it is strongly encouraged. It ensures that your project and its software
+dependencies will not interfere with other Python software on your system.
+On Linux-based systems, the system Python installation has some pretty core
+functionality, so if you bugger that up, your whole OS can be affected.
+<strong>You have been warned!!!*</strong> There are several tools for creating virtual
+environments.  But the simplest is Python’s built-in <code class="docutils literal notranslate"><span class="pre">venv</span></code> (short for
+“virtual environments”), illustrated here.</p>
+<p>Do this once:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv my-env
+</pre></div>
+</div>
+<p>The term <code class="docutils literal notranslate"><span class="pre">my-env</span></code> can be anything. It names the new environment. A
+typical choice is <code class="docutils literal notranslate"><span class="pre">env</span></code> or <code class="docutils literal notranslate"><span class="pre">venv</span></code>, possibly with a <code class="docutils literal notranslate"><span class="pre">.</span></code> prepended if
+you want the directory invisible by default from the terminal. In our
+experience, it is best to make this directory as visible as possible to
+remind yourself that the project requires you to initiate the virtual
+environment. You will want to add the name of the environment directory to
+<cite>.gitignore</cite> if it is different from the defaults just suggested.</p>
+<p>Do this every time you open up a new Terminal / Command Prompt to work on
+your project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>. my-env/bin/activate
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are a conda user, you may prefer a conda environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n my-env <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+conda activate my-env   <span class="c1"># repeat everytime you come back to project</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Make the directory a git repository.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git init
+Initialized empty Git repository <span class="k">in</span> <span class="o">(</span>...<span class="o">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Make the first “commit”. If we break anything in later steps, we can always
+roll back to this clean initial state.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git add .
+$ git commit -m <span class="s2">&quot;Initial commit.&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the author credentials for this repository will differ from your
+globally configured settings in git, then you should set them locally to
+what you want before committing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --local user.name USERNAME_FOR_VCS
+git config --local user.email EMAIL_FOR_VCS
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Create a new repository on <a class="reference external" href="https://git.ccfe.ac.uk/projects/new">GitLab</a>
+or <a class="reference external" href="https://github.com/new">GitHub</a>,
+naming it with the <code class="docutils literal notranslate"><span class="pre">repo_name</span></code> from your cookiecutter input above and
+selecting the appropriate group or organisation that should own it.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do <strong>not</strong> check “Initialize this repository with a README”.</p>
+</div>
+</li>
+<li><p>Configure your local repository to know about the remote repository…</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote add origin git@git.ccfe.ac.uk/GITLAB_USER_OR_ORG_NAME/YOUR_REPOSITORY_NAME.
+</pre></div>
+</div>
+<p>… and upload the code.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git push -u origin master
+Counting objects: <span class="m">42</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">4</span> threads.
+Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">40</span>/40<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">42</span>/42<span class="o">)</span>, <span class="m">29</span>.63 KiB <span class="p">|</span> <span class="m">0</span> bytes/s, <span class="k">done</span>.
+Total <span class="m">42</span> <span class="o">(</span>delta <span class="m">4</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
+remote: Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="k">done</span>.
+To git.ccfe.ac.uk:GITLAB_USER_OR_ORG_NAME/YOUR_REPO_NAME.git
+ * <span class="o">[</span>new branch<span class="o">]</span>      master -&gt; master
+   Branch master <span class="nb">set</span> up to track remote branch master from origin.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There has been a movement within software development away from using
+<code class="docutils literal notranslate"><span class="pre">master</span></code> as the name for the primary/default branch of a git repository
+because of the connection to the master/slave dynamic. There has been a
+lot of debate around this, and you can get a sense of it from <a class="reference external" href="https://mail.gnome.org/archives/desktop-devel-list/2019-May/msg00066.html">this
+source</a>
+and <a class="reference external" href="https://twitter.com/mislav/status/1270388510684598272">this one</a>. Whatever
+conclusions you reach, it is pretty easy to change to a different default
+branch name <em>before you first push to the remote</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git branch -M main
+$ git push -u origin main
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If this repository is to belong to an <em>organization</em> (e.g.
+<a class="reference external" href="http://github.com/ukaea">http://github.com/ukaea</a>) as opposed to a personal user account
+(e.g. <a class="reference external" href="http://github.com/bielsnohr">http://github.com/bielsnohr</a>) it is conventional to name the
+organization remote <code class="docutils literal notranslate"><span class="pre">upstream</span></code> instead of <code class="docutils literal notranslate"><span class="pre">origin</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote add upstream https://github.com/ORGANIZATION_NAME/YOUR_REPOSITORY_NAME.
+$ git push -u upstream master
+Counting objects: <span class="m">42</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">4</span> threads.
+Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">40</span>/40<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">42</span>/42<span class="o">)</span>, <span class="m">29</span>.63 KiB <span class="p">|</span> <span class="m">0</span> bytes/s, <span class="k">done</span>.
+Total <span class="m">42</span> <span class="o">(</span>delta <span class="m">4</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
+remote: Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="k">done</span>.
+To github.com:ORGANIZATION_NAME/YOUR_REPO_NAME.git
+ * <span class="o">[</span>new branch<span class="o">]</span>      master -&gt; master
+   Branch master <span class="nb">set</span> up to track remote branch master from upstream.
+</pre></div>
+</div>
+<p>and, separately, add your personal fork as <code class="docutils literal notranslate"><span class="pre">origin</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote add origin https://github.com/YOUR_GITHUB_USER_NAME/YOUR_REPOSITORY_NAME.
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Now let’s install your project for development.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-e</span></code> stands for “editable”. It uses simlinks to link to the actual
+files in your repository (rather than copying them, which is what plain
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code> would do) so that you do not need to re-install the
+package for an edit to take effect.</p>
+<p>This is similar to the behavior of <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></code>. If you
+have seen that before, we recommend always using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>
+instead because it avoids certain pitfalls.</p>
+</div>
+</li>
+<li><p>Finally, verify that we can import it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">your_package_name</span>
+</pre></div>
+</div>
+</li>
+<li><p>Looking ahead, we’ll also need the “development requirements” for our
+package. These are third-party Python packages that aren’t necessary to
+<em>use</em> our package, but are necessary to <em>develop</em> it (run tests, build the
+documentation). The cookiecutter template has listed some defaults in
+<code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>. Install them now.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --upgrade -r requirements-dev.txt
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Now we have a working but empty Python project. In the next section, we’ll
+start moving your scientific code into the project.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>You only need to pull the cookiecutter once. It will be stored locally at
+<code class="docutils literal notranslate"><span class="pre">~/.cookiecutters/python-skeleton-tutorial</span></code> such that you can use it again by
+issuing <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cookiecutter</span> <span class="pre">python-skeleton-tutorial</span></code> from your command line at
+any location. However, every once in a while it might be a good idea to do a
+pull like above from the repository to get any updates to the template.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p>If at any point you need help with the cookiecutter or anything software
+related, please reach out to <a class="reference external" href="https://intranet.ukaea.uk/software/community/">the RSE team</a>.</p>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="the-code-itself.html" class="btn btn-neutral float-right" title="The Code Itself" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="philosophy.html" class="btn btn-neutral float-left" title="Philosophy of this Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2018, Contributors.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

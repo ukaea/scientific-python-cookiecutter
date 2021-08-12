@@ -1,0 +1,6 @@
+﻿example.refraction.snell
+========================
+
+.. currentmodule:: example.refraction
+
+.. autofunction:: snell

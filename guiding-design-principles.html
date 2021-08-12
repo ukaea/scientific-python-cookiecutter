@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Guiding Design Principles &mdash; Scientific Python Cookiecutter 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Continous Integration Testing" href="ci.html" />
+    <link rel="prev" title="The Code Itself" href="the-code-itself.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Scientific Python Cookiecutter
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy of this Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preliminaries.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-code-itself.html">The Code Itself</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guiding Design Principles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#collaborate">Collaborate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#don-t-be-afraid-to-refactor">Don’t Be Afraid to Refactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prefer-wide-over-deep">Prefer “Wide” over “Deep”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keep-i-o-separate">Keep I/O Separate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#duck-typing-is-a-good-idea">Duck Typing is a Good Idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stop-writing-classes">“Stop Writing Classes”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#permissiveness-isn-t-always-convenient">Permissiveness Isn’t Always Convenient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-useful-error-messages">Write Useful Error Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-for-readability">Write for Readability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#complexity-is-always-conserved">Complexity is Always Conserved</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ci.html">Continous Integration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-docs.html">Writing Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="including-data-files.html">Including Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publishing-docs.html">Publishing the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publishing-releases.html">Publishing Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced-testing.html">Common Patterns for Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="existing-projects.html">Converting Existing Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments.html">Environments and Package Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further-reading.html">Futher Reading</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Scientific Python Cookiecutter</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Guiding Design Principles</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/guiding-design-principles.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="guiding-design-principles">
+<h1>Guiding Design Principles<a class="headerlink" href="#guiding-design-principles" title="Permalink to this headline">¶</a></h1>
+<p>In this section we summarize some guiding principles for designing and
+organizing scientific Python code. Before diving in, it should be noted that
+none of these are anything close to “rules”. They are ideas to keep in mind
+when writing your code, so don’t get too bogged down in making sure you have
+satisfied each and every one.</p>
+<p>Moreover, the points below barely scratch the surface. Software design is much
+more of an art than a science, and it is something that must be refined over
+time with intentional practice. The RSE Team runs a “Software
+Best Practices” Course that covers many of the topics here in a little more
+detail. The content of <a class="reference external" href="https://git.ccfe.ac.uk/software-training/software-best-practices">the course is available on GitLab</a> and you
+can register for instructor-led sessions on U4BW.</p>
+<div class="section" id="collaborate">
+<h2>Collaborate<a class="headerlink" href="#collaborate" title="Permalink to this headline">¶</a></h2>
+<p>Software developed by several people is preferable to software developed by
+one. By adopting the conventions and tooling used by many other scientific
+software projects, you are well on your way to making it easy for others to
+contribute. Familiarity works in both directions: it will be easier for others
+to understand and contribute to your project, and it will be easier for you to
+use other popular open-source scientific software projects and modify them to
+your purposes.</p>
+<p>Talking through a design and the assumptions in it helps to clarify your
+thinking.</p>
+<p>Collaboration takes trust. It is OK to be “wrong”; it is part of the process
+of making things better.</p>
+<p>Having more than one person understanding every part of the code prevents
+systematic risks for the project and keeps you from being tied to that code.</p>
+<p>If you can bring together contributors with diverse scientific backgrounds, it
+becomes easier to identify functionality that should be generalized for reuse
+by different fields.</p>
+</div>
+<div class="section" id="don-t-be-afraid-to-refactor">
+<span id="refactor"></span><h2>Don’t Be Afraid to Refactor<a class="headerlink" href="#don-t-be-afraid-to-refactor" title="Permalink to this headline">¶</a></h2>
+<p>No code is ever right the first (or second) time.</p>
+<p>Refactoring the code once you understand the problem and the design trade-offs
+more fully helps keep the code maintainable. Version control, tests, and
+linting are your safety net, empowering you to make changes with confidence. A
+nice resource for refactoring strategies is <a class="reference external" href="https://refactoring.guru/refactoring">Refactoring Guru</a>, and there was <a class="reference external" href="https://git.ccfe.ac.uk/software-training/Coding_Discussion_Group/-/blob/master/Meetings/2020_12_04-HBrooks-Code_refactoring/2020_12_04-HBrooks-Code_refactoring.pdf">a recent Coding
+Discussion Group presentation on refactoring</a>.
+Modern IDEs will have many builtin tools to assist with the implementation of
+refactoring techniques.</p>
+</div>
+<div class="section" id="prefer-wide-over-deep">
+<h2>Prefer “Wide” over “Deep”<a class="headerlink" href="#prefer-wide-over-deep" title="Permalink to this headline">¶</a></h2>
+<p>It should be possible to reuse pieces of software in a way not anticipated by
+the original author. That is, branching out from the initial use case should
+enable unplanned functionality without a massive increase in complexity.</p>
+<p>When building new things, work your way down to the lowest level, understand
+that level, and then build back up. Try to imagine what else you would want to
+do with the capability you are implementing for other research groups, for
+related scientific applications, and next year.</p>
+<p>Take the time to understand how things need to work at the bottom. It is better
+to slowly deploy a robust extensible solution than to quickly deploy a brittle
+narrow solution.</p>
+<p>Writing <em>modular</em> code is your friend here. Don’t write a monolithic procedural
+script that goes through your particular analysis or use-case step-by-step.
+This is not reusable. Instead, create functions for bits of code that you find
+yourself reusing (see <a class="reference internal" href="#small-functions"><span class="std std-ref">advice below</span></a>) and group related
+functions and classes into modules so that they can be used in other modules
+and to avoid name clashing.</p>
+</div>
+<div class="section" id="keep-i-o-separate">
+<h2>Keep I/O Separate<a class="headerlink" href="#keep-i-o-separate" title="Permalink to this headline">¶</a></h2>
+<p>One of the biggest impediments to reuse of scientific code is when I/O
+code—assuming certain file locations, names, formats, or layouts—is
+interspersed with scientific logic.</p>
+<p>I/O-related functions should <em>only</em> perform I/O. For example, they should take
+in a filepath and return a numpy array, or a dictionary of arrays and metadata.
+The valuable scientific logic should be encoded in functions that take in
+standard data types and return standard data types. This makes them easier to
+test, maintain when data formats change, or reuse for unforeseen applications.</p>
+</div>
+<div class="section" id="duck-typing-is-a-good-idea">
+<h2>Duck Typing is a Good Idea<a class="headerlink" href="#duck-typing-is-a-good-idea" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Duck_typing">Duck typing</a> treats objects based
+on what they can <em>do</em>, not based on what type they <em>are</em>. “If it walks like a
+duck and it quacks like a duck, then it must be a duck.”</p>
+<p>Consider this more concrete albeit contrived example.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Duck</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Duck flying&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Goose</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Goose flying&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Whale</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">swim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whale swimming&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">Duck</span><span class="p">(),</span> <span class="n">Goose</span><span class="p">(),</span> <span class="n">Whale</span><span class="p">():</span>
+    <span class="n">animal</span><span class="o">.</span><span class="n">fly</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In statically typed languages, this would not compile and run. But in Python
+this code will run right up until the point that the <code class="docutils literal notranslate"><span class="pre">fly()</span></code> method is not
+found on the <code class="docutils literal notranslate"><span class="pre">Whale</span></code> object. The for loop treats both <code class="docutils literal notranslate"><span class="pre">Duck</span></code> and <code class="docutils literal notranslate"><span class="pre">Goose</span></code>
+objects equally because they implement the <code class="docutils literal notranslate"><span class="pre">fly()</span></code> method. This is
+<em>duck-typing</em>.</p>
+<p>Python in general and scientific Python in particular leverage <em>interfaces</em> to
+support interoperability and reuse. For example, it is possible to pass a
+pandas DataFrame to the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="(in NumPy v1.21)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.sum()</span></code></a> function even though pandas was
+created long after <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="(in NumPy v1.21)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.sum()</span></code></a>. This is because <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="(in NumPy v1.21)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.sum()</span></code></a> avoids
+assuming it will be passed specific data types; it accepts any object that
+provides the right methods (interfaces). Where possible, avoid <code class="docutils literal notranslate"><span class="pre">isinstance</span></code>
+checks in your code, and try to make your functions work on the broadest
+possible range of input types.</p>
+</div>
+<div class="section" id="stop-writing-classes">
+<h2>“Stop Writing Classes”<a class="headerlink" href="#stop-writing-classes" title="Permalink to this headline">¶</a></h2>
+<p>Not everything needs to be object-oriented. Object-oriented design frequently
+does not add value in scientific computing.</p>
+<blockquote class="epigraph">
+<div><p>It is better to have 100 functions operate on one data structure than 10
+functions on 10 data structures.</p>
+<p class="attribution">—From ACM’s SIGPLAN publication, (September, 1982), Article “Epigrams in
+Programming”, by Alan J. Perlis of Yale University.</p>
+</div></blockquote>
+<p>It is often tempting to invent special objects for a use case or workflow —
+an <code class="docutils literal notranslate"><span class="pre">Image</span></code> object or a <code class="docutils literal notranslate"><span class="pre">DiffractionAnalysis</span></code> object. This approach has
+proven again and again to be difficult to extend and maintain. It is better to
+prefer standard, simple data structures like Python dictionaries and numpy
+arrays and use simple functions to operate on them.</p>
+<p>A popular talk, “Stop Writing Classes,” which you can
+<a class="reference external" href="https://www.youtube.com/watch?v=o9pEzgHorH0&amp;t=193s">watch on YouTube</a>,
+illustrates how some situations that <em>seem</em> to lend themselves to
+object-oriented programming are much more simply handled using plain, built-in
+data structures and functions.</p>
+<p>As another example, the widely-used scikit-image library initially experimented
+with using an <code class="docutils literal notranslate"><span class="pre">Image</span></code> class, but ultimately decided that it was better to use
+plain old numpy arrays. All scientific Python libraries understand numpy
+arrays, but they don’t understand custom classes, so it is better to pass
+application-specific metadata <em>alongside</em> a standard array than to try to
+encapsulate all of that information in a new, bespoke object.</p>
+</div>
+<div class="section" id="permissiveness-isn-t-always-convenient">
+<h2>Permissiveness Isn’t Always Convenient<a class="headerlink" href="#permissiveness-isn-t-always-convenient" title="Permalink to this headline">¶</a></h2>
+<p>Overly permissive code can lead to very confusing bugs. If you need a flexible
+user-facing interface that tries to “do the right thing” by guessing what the
+users wants, separate it into two layers: a thin “friendly” layer on top of a
+“cranky” layer that takes in only exactly what it needs and does the actual
+work. The cranky layer should be easy to test; it should be constrained about
+what it accepts and what it returns. This layered design makes it possible to
+write <em>many</em> friendly layers with different opinions and different defaults.</p>
+<p>Exceptions should just be raised: don’t catch them and print. Exceptions are a
+tool for being clear about what the code needs and letting the caller decide
+what to do about it. <em>Application</em> code (e.g. GUIs) should catch and handle
+errors to avoid crashing, but <em>library</em> code should generally raise errors
+unless it is sure how the user or the caller wants to handle them.</p>
+</div>
+<div class="section" id="write-useful-error-messages">
+<h2>Write Useful Error Messages<a class="headerlink" href="#write-useful-error-messages" title="Permalink to this headline">¶</a></h2>
+<p>Be specific. Include what the wrong value was, what was wrong with it, and
+perhaps how it might be fixed. For example, if the code fails to locate a file
+it needs, it should say what it was looking for and where it looked.</p>
+</div>
+<div class="section" id="write-for-readability">
+<h2>Write for Readability<a class="headerlink" href="#write-for-readability" title="Permalink to this headline">¶</a></h2>
+<p>Unless you are writing a script that you plan to delete tomorrow or next week,
+your code will probably be read many more times than it is written. And today’s
+“temporary solution” often becomes tomorrow’s critical code. Therefore,
+optimize for clarity over brevity, using descriptive and consistent names.</p>
+</div>
+<div class="section" id="complexity-is-always-conserved">
+<h2>Complexity is Always Conserved<a class="headerlink" href="#complexity-is-always-conserved" title="Permalink to this headline">¶</a></h2>
+<p>Complexity is always conserved and is strictly greater than the system the code
+is modeling. Attempts to hide complexity from the user frequently backfire.</p>
+<p>For example, it is often tempting to hide certain reused keywords in a
+function, shortening this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_image</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">beginning</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>into this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_image</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{}):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Although the interface appears to have been simplified through hidden keyword
+arguments, now the user needs to remember what the <code class="docutils literal notranslate"><span class="pre">options</span></code> are or dig
+through documentation to better understand how to use them.</p>
+<p>Because new science occurs when old ideas are reapplied or extended in
+unforeseen ways, scientific code should not bury its complexity or overly
+optimize for a specific use case. It should expose what complexity there is
+straightforwardly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even better, you should consider using “keyword-only” arguments, introduced
+in Python 3, which require the user to pass an argument by keyword rather
+than position.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_image</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">beginning</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Every argument after the <code class="docutils literal notranslate"><span class="pre">*</span></code> is keyword-only. Therefore, the usage
+<code class="docutils literal notranslate"><span class="pre">get_image('thing.png',</span> <span class="pre">False)</span></code> will not be allowed; the caller must
+explicitly type <code class="docutils literal notranslate"><span class="pre">get_image('thing.png',</span> <span class="pre">normalize=False)</span></code>. The latter is
+easier to read, and it enables the author to insert additional parameters
+without breaking backward compatibility.</p>
+</div>
+<p id="small-functions">Similarly, it can be tempting to write one function that performs multiple
+steps and has many options instead of multiple functions that do a single step
+and have few options. The advantages of “many small functions” reveal
+themselves in time:</p>
+<ul class="simple">
+<li><p>Small functions are easier to explain and document because their behavior is
+well-scoped.</p></li>
+<li><p>Small functions can be tested individually, and it is easy to see which paths
+have and have not yet been tested.</p></li>
+<li><p>It is easier to compose a function with other functions and reuse it in an
+unanticipated way if its behavior is well-defined and tightly scoped. This is
+<a class="reference external" href="https://en.wikipedia.org/wiki/Unix_philosophy">the UNIX philosophy</a>:
+“Do one thing and do it well.”</p></li>
+<li><p>The number of possible interactions between arguments goes up with the number
+of arguments, which makes the function difficult to reason about and test. In
+particular, arguments whose meaning depends on other arguments should be
+avoided.</p></li>
+</ul>
+<p>Functions should return the same kind of thing no matter what their arguments,
+particularly their optional arguments.  Violating “return type stability” puts
+a burden on the function’s caller, which now must understand the internal
+details of the function to know what type to expect for any given input. That
+makes the function harder to document, test, and use.  Python does not enforce
+return type stability, but we should try for it anyway.  If you have a function
+that returns different types of things depending on its inputs, that is a sign
+that it should be <a class="reference internal" href="#refactor"><span class="std std-ref">refactored</span></a> into multiple functions.</p>
+<p>Python is incredibly flexible. It accommodates many possible design choices.
+By exercising some restraint and consistency with the scientific Python
+ecosystem, Python can be used to build scientific tools that last and grow well
+over time.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ci.html" class="btn btn-neutral float-right" title="Continous Integration Testing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="the-code-itself.html" class="btn btn-neutral float-left" title="The Code Itself" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2018, Contributors.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
