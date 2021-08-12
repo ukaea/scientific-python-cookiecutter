@@ -1,0 +1,42 @@
+# This workflow will install Python dependencies, run tests on cookiecutter and
+# deploy tutorial
+# For more information see:
+# https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actionsl
+
+name: Test Cookiecutter
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Test cookiecutter execution
+      run: |
+        python -V
+        python -m pip install --upgrade pip
+        python -m pip install -r requirements.txt 
+       ./run_cookiecutter_example.py
+    - name: Test cookiecutter-generated example module
+      run: |
+        python -m pip install -e example/
+        python -m pip install -r example/requirements-dev.txt 
+        ./copy_user_content.sh
+        pytest example/
+        make -C example/docs html
+    - name: Archive documentation build
+        uses: actions/upload-artifact@v2
+        with:
+          name: example-docs
+          path: example/docs/build/html/
