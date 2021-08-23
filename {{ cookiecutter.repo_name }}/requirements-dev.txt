@@ -11,6 +11,7 @@ versioneer
 ipython
 matplotlib
 numpydoc
+docutils < 0.17
 sphinx-copybutton
 sphinx_rtd_theme
 sphinx-autoapi
