@@ -1,5 +1,7 @@
 # Scientific Python Cookiecutter
 
+[![CI](https://github.com/bielsnohr/scientific-python-cookiecutter/actions/workflows/ci.yml/badge.svg)](https://github.com/bielsnohr/scientific-python-cookiecutter/actions/workflows/ci.yml) ![GitHub](https://img.shields.io/github/license/bielsnohr/scientific-python-cookiecutter) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CONTRIBUTING.md) 
+
 This repository contains a cookiecutter template for generating a scientific
 Python project complete with CI testing and documentation.
 See the usage section below for a quick start on how to obtain the template.

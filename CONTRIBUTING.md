@@ -189,7 +189,8 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
 
 ```
-matthew dot bluteau at ukaea dot uk (bielsnohr)
+email bielsnohr (aka Matt):
+matthew dot bluteau at ukaea dot uk 
 ```
 
 All complaints will be reviewed and investigated promptly and fairly.
