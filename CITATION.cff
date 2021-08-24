@@ -1,17 +1,14 @@
 # YAML 1.2
 ---
 authors: 
-  -
-    affiliation: UKAEA
+  - affiliation: UKAEA
     family-names: Bluteau
     given-names: Matthew
     orcid: "https://orcid.org/0000-0001-9498-8475"
-  -
-    affiliation: UKAEA
+  - affiliation: UKAEA
     family-names: Gadgil
     given-names: Sanket
-  -
-    affiliation: "Brookhaven National Laboratory"
+  - affiliation: "Brookhaven National Laboratory"
     family-names: 
     given-names: 
 cff-version: "1.1.0"
@@ -19,5 +16,4 @@ date-released: 2021-08-24
 license: "BSD-3-Clause"
 message: "If you would like to reference the tutorial or cookiecutter template, please cite them using these metadata."
 title: "UKAEA Scientific Python Cookiecutter"
-version: "v1.0.0"
-...
+version: "v1.0.1"
