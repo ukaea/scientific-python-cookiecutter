@@ -121,7 +121,8 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_static_path = ['_static']
 
 # Set the base url for GitHub pages
-html_baseurl = 'http://bielsnohr.github.io/scientific-python-cookiecutter/'
+# TODO is this necessary?
+html_baseurl = 'http://ukaea.github.io/scientific-python-cookiecutter/'
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.

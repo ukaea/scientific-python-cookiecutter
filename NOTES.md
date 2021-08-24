@@ -2,7 +2,7 @@
 
 1. Make sure you have the Sphinx `conf.py` set correctly:
   ```python
-  html_baseurl = 'http://bielsnohr.github.io/scientific-python-cookiecutter/'
+  html_baseurl = 'http://ukaea.github.io/scientific-python-cookiecutter/'
   ```
 2. Add this action to the GitHub Actions: 
   ```yaml
