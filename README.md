@@ -1,6 +1,7 @@
 # Scientific Python Cookiecutter
 
-[![CI](https://github.com/ukaea/scientific-python-cookiecutter/actions/workflows/ci.yml/badge.svg)](https://github.com/ukaea/scientific-python-cookiecutter/actions/workflows/ci.yml) ![GitHub](https://img.shields.io/github/license/ukaea/scientific-python-cookiecutter) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CONTRIBUTING.md) 
+[![CI](https://github.com/ukaea/scientific-python-cookiecutter/actions/workflows/ci.yml/badge.svg)](https://github.com/ukaea/scientific-python-cookiecutter/actions/workflows/ci.yml) ![GitHub](https://img.shields.io/github/license/ukaea/scientific-python-cookiecutter) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CONTRIBUTING.md) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5243299.svg)](https://doi.org/10.5281/zenodo.5243299)
+
 
 This repository contains a cookiecutter template for generating a scientific
 Python project complete with CI testing and documentation.

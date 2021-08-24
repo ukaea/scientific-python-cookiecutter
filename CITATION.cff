@@ -10,10 +10,11 @@ authors:
     given-names: Sanket
   - affiliation: "Brookhaven National Laboratory"
     family-names: "Brookhaven National Laboratory"
-    given-names: "Brookhaven National Laboratory"
+    given-names: "Contributors"
 cff-version: "1.2.0"
 date-released: 2021-08-24
 license: "BSD-3-Clause"
 message: "If you would like to reference the tutorial or cookiecutter template, please cite them using these metadata."
 title: "UKAEA Scientific Python Cookiecutter"
 version: "v1.0.1"
+doi: "10.5281/zenodo.5243299"
