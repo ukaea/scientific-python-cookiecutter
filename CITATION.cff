@@ -8,9 +8,7 @@ authors:
   - affiliation: UKAEA
     family-names: Gadgil
     given-names: Sanket
-  - affiliation: "Brookhaven National Laboratory"
-    family-names: "Brookhaven National Laboratory"
-    given-names: "Contributors"
+  - name: "Brookhaven National Laboratory"
 cff-version: "1.2.0"
 date-released: 2021-08-24
 license: "BSD-3-Clause"
