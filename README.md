@@ -38,7 +38,7 @@ Follow the prompts to set up your project.
 aimed at scientific researchers who have a novice level of experience with
 Python. Typically, this means a researcher who knows the basic features of 
 Python and has written a few scripts to perform analysis and visualisation but
-has little or now awareness about how to package Python projects so they can be
+has little or no awareness about how to package Python projects so they can be
 shared. However, even if you consider yourself to be above novice level, this
 tutorial could prove useful because it recommends a consistent set of tools and
 practices that all successful Python projects should have.

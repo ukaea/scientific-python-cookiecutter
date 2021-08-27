@@ -106,21 +106,13 @@ goes wrong, and debug if necessary. We recommend you do the same.
 
    .. code-block:: bash
    
-      cookiecutter https://git.ccfe.ac.uk/soft-eng-group/rse/skeleton-repositories/python-skeleton-tutorial
+      cookiecutter https://github.com/ukaea/scientific-python-cookiecutter
 
-   or if you prefer to not have to enter your GitLab username and password and
-   have SSH keys set up:
-
-   .. code-block:: bash
-
-      git clone git@git.ccfe.ac.uk/soft-eng-group/rse/skeleton-repositories/python-skeleton-tutorial
-      cookiecutter <path/to/cloned/repo/above>
-
-   You will see the following the prompts. The default suggestion is given in
+   You should see the following prompts. The default suggestion is given in
    square brackets.
 
    For the last question, ``minimum_supported_python_version``, we recommend
-   supporting back to Python 3.6 unless you have a need for newer Python
+   supporting back to Python 3.7 unless you have a need for newer Python
    features.
 
    .. code-block:: bash
@@ -136,9 +128,9 @@ goes wrong, and debug if necessary. We recommend you do the same.
       project_short_description [Python package for doing science.]: 
       year [2020]: 2021
       Select minimum_supported_python_version:
-      1 - 3.6
-      2 - 3.7
-      3 - 3.8
+      1 - 3.7
+      2 - 3.8
+      3 - 3.9
       Choose from 1, 2, 3 [1]: 1
 
    This generates a new directory, ``example`` in this case, with all the
