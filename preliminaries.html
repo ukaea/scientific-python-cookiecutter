@@ -261,19 +261,13 @@ environment for this project <a class="reference internal" href="#environment"><
 </ol>
 </li>
 <li><p>Generate a new Python project using our cookiecutter template <a class="footnote-reference brackets" href="#id3" id="id2">1</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cookiecutter https://git.ccfe.ac.uk/soft-eng-group/rse/skeleton-repositories/python-skeleton-tutorial
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cookiecutter https://github.com/ukaea/scientific-python-cookiecutter
 </pre></div>
 </div>
-<p>or if you prefer to not have to enter your GitLab username and password and
-have SSH keys set up:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@git.ccfe.ac.uk/soft-eng-group/rse/skeleton-repositories/python-skeleton-tutorial
-cookiecutter &lt;path/to/cloned/repo/above&gt;
-</pre></div>
-</div>
-<p>You will see the following the prompts. The default suggestion is given in
+<p>You should see the following prompts. The default suggestion is given in
 square brackets.</p>
 <p>For the last question, <code class="docutils literal notranslate"><span class="pre">minimum_supported_python_version</span></code>, we recommend
-supporting back to Python 3.6 unless you have a need for newer Python
+supporting back to Python 3.7 unless you have a need for newer Python
 features.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>full_name <span class="o">[</span>Your Name or Your Organization<span class="o">]</span>: Matthew Bluteau
 email <span class="o">[]</span>: matthew.bluteau@ukaea.uk
@@ -286,9 +280,9 @@ repo_name <span class="o">[</span>example<span class="o">]</span>:
 project_short_description <span class="o">[</span>Python package <span class="k">for</span> doing science.<span class="o">]</span>:
 year <span class="o">[</span><span class="m">2020</span><span class="o">]</span>: <span class="m">2021</span>
 Select minimum_supported_python_version:
-<span class="m">1</span> - <span class="m">3</span>.6
-<span class="m">2</span> - <span class="m">3</span>.7
-<span class="m">3</span> - <span class="m">3</span>.8
+<span class="m">1</span> - <span class="m">3</span>.7
+<span class="m">2</span> - <span class="m">3</span>.8
+<span class="m">3</span> - <span class="m">3</span>.9
 Choose from <span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span> <span class="o">[</span><span class="m">1</span><span class="o">]</span>: <span class="m">1</span>
 </pre></div>
 </div>
